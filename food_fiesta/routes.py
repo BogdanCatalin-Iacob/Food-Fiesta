@@ -1,5 +1,6 @@
 from flask import render_template
 from food_fiesta import app, db
+from food_fiesta.models import Category, Users
 
 
 @app.route("/")
