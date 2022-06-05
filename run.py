@@ -1,8 +1,9 @@
 import os
-from flask import Flask
-if os.path.exists("env.py"):
-    import env
+from food_fiesta import app
 
-
-app = Flask(__name__)
-
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP"),
+        port=int(os.environ.get("PORT")),
+        debug=os.environ.get("DEBUG")
+    )
