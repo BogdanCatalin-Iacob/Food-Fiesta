@@ -16,6 +16,8 @@ class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(250), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    is_superuser = db.Column(db.Boolean, unique=False, default=False)
 
     def __repr__(self):
         '''return itself as a string'''
