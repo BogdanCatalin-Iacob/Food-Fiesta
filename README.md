@@ -102,6 +102,7 @@ Home Page<br>
 * Python
 * Postgresql
 * MongoDB
+* Materialize
 * [Font Awesome](https://fontawesome.com/)
 	* Font awesome Icons are used for the Social media links contained in the Footer section of the website and for the benefits found on the index.html page.
 * [Google Fonts](https://fonts.google.com/)
