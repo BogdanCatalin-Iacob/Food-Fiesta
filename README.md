@@ -98,6 +98,10 @@ Home Page<br>
 	* This project uses HTML as the main language used to complete the structure of the Website.
 * CSS
 	* This project uses custom written CSS to style the Website.
+* Flask
+* Python
+* Postgresql
+* MongoDB
 * [Font Awesome](https://fontawesome.com/)
 	* Font awesome Icons are used for the Social media links contained in the Footer section of the website and for the benefits found on the index.html page.
 * [Google Fonts](https://fonts.google.com/)
