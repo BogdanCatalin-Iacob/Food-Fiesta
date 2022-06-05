@@ -9,3 +9,8 @@ def home():
     render the base.html page
     '''
     return render_template("recipes.html")
+
+
+app.route("/categories")
+def categories():
+    return render_template("categories.html")
