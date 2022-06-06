@@ -1,5 +1,6 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash, session
 from food_fiesta import app, db
+from werkzeug.security import generate_password_hash, check_password_hash
 from food_fiesta.models import Category, Users
 
 
@@ -48,7 +49,50 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<int:category_id>")
 def delete_category(category_id):
+    '''
+    delete the category based on category id
+    if delete button is clicked
+    '''
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
     db.session.commit()
     return redirect(url_for("categories"))
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    '''
+    add a new user to db
+    if the user already exists, a flash message will be prompted
+    and register page will be displayed
+    '''
+
+    if request.method == "POST":
+        # check if username exists in db
+        user_exists = Users.query.filter(
+            Users.user_name == request.form.get("user_name").lower()).all()
+
+        if user_exists:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        # check if the password matches confirm_password
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+        if password == confirm_password:
+            user = Users(
+                user_name=request.form.get("user_name").lower(),
+                password=generate_password_hash(request.form.get("password"))
+            )
+
+            db.session.add(user)
+            db.session.commit()
+
+            # put new user in session cookie
+            session["user"] = request.form.get("user_name").lower()
+            flash("Registration successful!")
+            return redirect(url_for("profile", user_name=session["user"]))
+        else:
+            flash("Password does not match!")
+
+    return render_template("register.html")
