@@ -103,12 +103,41 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/profile/<user_name>", methods=["GET", "POST"])
-def profile(user_name):
-    '''
-    check if user is logged in and display the profile.html page
-    '''
-    if "user" in session:
-        return render_template("profile.html", user_name=session["user"])
+# @app.route("/profile/<user_name>", methods=["GET", "POST"])
+# def profile(user_name):
+#     '''
+#     check if the user is logged in and display profile.html
+#     '''
+#     if "user" in session:
+#         return render_template("profile.html")
 
-    return redirect(url_for("login"))
+#     return redirect(url_for("login"))
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    '''
+    log the user in if the username exists in db
+    and the password matches
+    '''
+    if request.method == "POST":
+        # check if username exists in db
+        user_exists = Users.query.filter(
+            Users.user_name == request.form.get("user_name").lower()).all()
+
+        if user_exists:
+            # check if password matches with the password in db
+            if check_password_hash(
+                        user_exists[0].password, request.form.get("password")):
+                session["user"] = request.form.get("user_name").lower()
+
+                flash(f"Welcome, {request.form.get('user_name').capitalize()}")
+                return redirect(
+                    url_for("profile", user_name=session["user"].capitalize()))
+
+    return render_template("login.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html", user_name=session["user"].capitalize())
