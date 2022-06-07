@@ -101,3 +101,14 @@ def register():
         return redirect(url_for("profile", user_name=session["user"]))
 
     return render_template("register.html")
+
+
+@app.route("/profile/<user_name>", methods=["GET", "POST"])
+def profile(user_name):
+    '''
+    check if user is logged in and display the profile.html page
+    '''
+    if "user" in session:
+        return render_template("profile.html", user_name=session["user"])
+
+    return redirect(url_for("login"))
