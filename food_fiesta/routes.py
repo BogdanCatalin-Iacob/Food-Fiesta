@@ -138,6 +138,17 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    '''
+    log out the user from current session
+    '''
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
 @app.route("/profile")
 def profile():
     return render_template("profile.html", user_name=session["user"].capitalize())
