@@ -79,20 +79,25 @@ def register():
         # check if the password matches confirm_password
         password = request.form.get("password")
         confirm_password = request.form.get("confirm_password")
-        if password == confirm_password:
-            user = Users(
-                user_name=request.form.get("user_name").lower(),
-                password=generate_password_hash(request.form.get("password"))
+        if password != confirm_password:
+            flash("Password does not match!")
+            return redirect(url_for("register"))
+
+        # get user info from the form
+        user = Users(
+            user_name=request.form.get("user_name").lower(),
+            password=generate_password_hash(request.form.get("password")),
+            email=request.form.get("email"),
+            is_superuser=False
             )
 
-            db.session.add(user)
-            db.session.commit()
+        # send user info to db
+        db.session.add(user)
+        db.session.commit()
 
-            # put new user in session cookie
-            session["user"] = request.form.get("user_name").lower()
-            flash("Registration successful!")
-            return redirect(url_for("profile", user_name=session["user"]))
-        else:
-            flash("Password does not match!")
+        # put new user in session cookie
+        session["user"] = request.form.get("user_name").lower()
+        flash("Registration successful!")
+        return redirect(url_for("profile", user_name=session["user"]))
 
     return render_template("register.html")
