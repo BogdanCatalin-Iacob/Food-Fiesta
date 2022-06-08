@@ -34,7 +34,7 @@
 
 ## Purpose
 This Website was created for the sole purpose of completing the third Milestone Project for the Code Institute's Full Stack Developer course. 
-It was built using the knowledge gained from the HTML, CSS, JavaScript, Backend Development with Database modules. A full list of technologies used can be found in the technologies section of this document.
+It was built using the knowledge gained from the HTML, CSS, JavaScript, Python, Flask, MongoBb and SQL modules. A full list of technologies used can be found in the technologies section of this document.
 
 The live website can be found [here]().
 ![Website Mock Up]()
@@ -79,6 +79,12 @@ Home Page<br>
 ## Features
  
 -   ### Existing Features
+
+    - Each page of the website features a consistent responsive navigational system:
+
+    - The header contains the logo of the website in the center of the navigation bar. This will also redirect users back to the home page once clicking on it. On       smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. I chose a dropdown because I think it works better and is more presentable on smaller devices. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.
+
+    - The footer is intentionally simple to keep up with the simplicity of the rest of the site. It contains social network links .
 
 
 - Error page (404) to redirect the user back to home page<br>
