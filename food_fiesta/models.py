@@ -1,3 +1,6 @@
+'''
+This module describes PostgreSQL db schema
+'''
 from food_fiesta import db
 
 
@@ -8,7 +11,7 @@ class Category(db.Model):
 
     def __repr__(self):
         '''return itself as a string'''
-        return self.category_name
+        return str(self.category_name)
 
 
 class Users(db.Model):
@@ -21,4 +24,4 @@ class Users(db.Model):
 
     def __repr__(self):
         '''return itself as a string'''
-        return self.user_name
+        return str(self.user_name)
