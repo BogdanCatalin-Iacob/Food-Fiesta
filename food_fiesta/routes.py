@@ -159,3 +159,9 @@ def get_recipes():
     recipes = list(mongo.db.instructions.find())
     print(recipes)
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/create_recipe", methods=["GET", "POST"])
+def create_recipe():
+    total_time = 0
+    return render_template("create_recipe.html", total_time=total_time)
