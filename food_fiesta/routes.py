@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session
-from food_fiesta import app, db
 from werkzeug.security import generate_password_hash, check_password_hash
+from food_fiesta import app, db, mongo
 from food_fiesta.models import Category, Users
 
 
@@ -152,3 +152,10 @@ def logout():
 @app.route("/profile")
 def profile():
     return render_template("profile.html", user_name=session["user"].capitalize())
+
+
+@app.route("/get_recipes")
+def get_recipes():
+    recipes = list(mongo.db.instructions.find())
+    print(recipes)
+    return render_template("recipes.html", recipes=recipes)
