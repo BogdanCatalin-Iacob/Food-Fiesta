@@ -8,6 +8,20 @@
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('create_recipe') }}">
         <div class="card-panel grey lighten-4">
 
+            <!-- Category selector -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-book-open prefix green-text text-lighten-2"></i>
+                    <label>Choose Category</label>
+                    <select>
+                        <option value="" disabled selected></option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor%}
+                    </select>
+                </div>
+            </div>
+
             <!--Recipe name-->
             <div class="row">
                 <div class="input-field col s12">
@@ -39,7 +53,8 @@
                 <!-- Total time -->
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
-                    <input disabled id="total_time" name="total_time" type="number" value="{{ total_time }}" class="validate">
+                    <input disabled id="total_time" name="total_time" type="number" value="{{ total_time }}"
+                        class="validate">
                     <label for="total_time">Total time:</label>
                 </div>
             </div>
