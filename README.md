@@ -157,7 +157,9 @@ Home Page<br>
 
     
 ### Issues and Resolutions to issues found during testing
-
+ - Total time on the create_recipe form was not live updated:
+    - I created a new js function (totalTime()) to get cook_time and prep_time values from the form 
+    and set the addition of them to the form's total_time value
 
 ***
 ## Deployment
