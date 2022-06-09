@@ -134,6 +134,10 @@ def login():
                 flash(f"Welcome, {request.form.get('user_name').capitalize()}")
                 return redirect(
                     url_for("profile", user_name=session["user"].capitalize()))
+        
+        # if wrong username or password
+        flash("Wrong username and/or password")
+        return redirect(url_for("login"))
 
     return render_template("login.html")
 
