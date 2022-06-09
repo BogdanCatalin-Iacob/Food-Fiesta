@@ -38,7 +38,8 @@
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" minlength="1" maxlength="10"
-                        pattern="^[0-9]{1,10}$" class="validate" required>
+                        pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
+                        required>
                     <label for="prep_time">Preparation time:</label>
                 </div>
 
@@ -46,15 +47,15 @@
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
                     <input id="cook_time" name="cook_time" type="number" minlength="1" maxlength="10"
-                        pattern="^[0-9]{1,10}$" class="validate" required>
+                        pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
+                        required>
                     <label for="cook_time">Cooking time:</label>
                 </div>
 
                 <!-- Total time -->
                 <div class="input-field col s12 m4">
                     <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
-                    <input disabled id="total_time" name="total_time" type="number" value="{{ total_time }}"
-                        class="validate">
+                    <input disabled id="total_time" name="total_time" value="0" type="text" class="validate">
                     <label for="total_time">Total time:</label>
                 </div>
             </div>
@@ -63,7 +64,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-list prefix green-text text-lighten-2"></i>
-                    <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50" class="validate">
+                    <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50"
+                        class="validate">
                     <label for="ingredients">Ingredients:</label>
                 </div>
             </div>
