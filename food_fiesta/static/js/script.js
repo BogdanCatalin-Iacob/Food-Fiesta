@@ -33,3 +33,27 @@ function totalTime() {
 
   document.getElementById("total_time").value = totalTime;
 }
+
+/**
+ * Add ingredients to the list and display them
+ */
+function addIngredient(){
+  let ingredientsList = document.getElementById("ingredientsList");
+  // show the field if hidden
+  if (ingredientsList.classList.contains("hide")){
+    ingredientsList.classList.remove("hide");
+  }
+
+  // add items to the ingredients list
+  let ingredients = [];
+  let ingredient = document.getElementById("ingredients").value;
+  ingredients.push(ingredient);
+  document.getElementById("ingredients").value = "";
+
+  // display all the items from the ingredients list
+  ingredients.forEach(item => {document.getElementById("ingredientsList").innerHTML += `<input class="col s11 m4 l3" type="text" value="${item}">`});
+}
+
+// add ingredient button event listener
+let addButton = document.getElementById("addButton");
+addButton.addEventListener("click", addIngredient);
