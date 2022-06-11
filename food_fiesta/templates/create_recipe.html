@@ -16,7 +16,7 @@
                     <select>
                         <option value="" disabled selected></option>
                         {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor%}
                     </select>
                 </div>
@@ -33,9 +33,17 @@
             </div>
 
             <!--Preparation, cooking, total time-->
+            <!-- Servings -->
+            <div class="input-field col s12 m2">
+                <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
+                <input id="servings" name="servings" type="number" minlength="1" maxlength="10" pattern="^[0-9]{1,10}$"
+                    onfocus="this.value=''" value="0" class="validate" required>
+                <label for="prep_time">Servings:</label>
+            </div>
             <div class="row">
+
                 <!-- Preparation time -->
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m3">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" minlength="1" maxlength="10"
                         pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
@@ -44,7 +52,7 @@
                 </div>
 
                 <!-- Cooking time -->
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m3">
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
                     <input id="cook_time" name="cook_time" type="number" minlength="1" maxlength="10"
                         pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
@@ -53,7 +61,7 @@
                 </div>
 
                 <!-- Total time -->
-                <div class="input-field col s12 m4">
+                <div class="input-field col s12 m3">
                     <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
                     <input disabled id="total_time" name="total_time" value="0" type="text" class="validate">
                     <label for="total_time">Total time:</label>
@@ -62,12 +70,16 @@
 
             <!-- Ingredients -->
             <div class="row">
-                <div class="input-field col s12">
+                <div id="ingredientsList" class="col s12"></div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
                     <i class="fa-solid fa-list prefix green-text text-lighten-2"></i>
                     <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50"
                         class="validate">
                     <label for="ingredients">Ingredients:</label>
                 </div>
+                <div id="addButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
             </div>
 
             <!-- Preparation -->
