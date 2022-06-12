@@ -11,3 +11,12 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  .btn-small{
+    margin: 0.5rem;
+  }
+
+  .collapsible-header .col strong{
+    margin:0.5rem;
+    line-height: 2rem;
+  }
