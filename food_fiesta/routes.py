@@ -176,7 +176,6 @@ def get_recipes():
     get the recipes from mongodb
     '''
     recipes = list(mongo.db.instructions.find())
-    print(recipes)
     return render_template("recipes.html", recipes=recipes)
 
 
@@ -220,3 +219,13 @@ def edit_recipe(recipe_id):
     # recipes = list(mongo.db.instructions.find())
     categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    '''
+    delete the selected recipe
+    '''
+    mongo.db.instructions.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Task successfully deleted")
+    return redirect(url_for("get_recipes"))
