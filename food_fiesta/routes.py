@@ -1,3 +1,4 @@
+import json
 from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from food_fiesta import app, db, mongo
@@ -17,8 +18,9 @@ def categories():
     '''
     render the categories from db on categories.html page
     '''
-    categories = list(Category.query.order_by(Category.category_name).all())
-    return render_template("categories.html", categories=categories)
+    get_categories = list(
+        Category.query.order_by(Category.category_name).all())
+    return render_template("categories.html", categories=get_categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -134,7 +136,7 @@ def login():
                 flash(f"Welcome, {request.form.get('user_name').capitalize()}")
                 return redirect(
                     url_for("profile", user_name=session["user"].capitalize()))
-        
+
         # if wrong username or password
         flash("Wrong username and/or password")
         return redirect(url_for("login"))
@@ -155,11 +157,18 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html", user_name=session["user"].capitalize())
+    '''
+    display's profile page of the user in session
+    '''
+    return render_template(
+        "profile.html", user_name=session["user"].capitalize())
 
 
 @app.route("/get_recipes")
 def get_recipes():
+    '''
+    get the recipes from mongodb
+    '''
     recipes = list(mongo.db.instructions.find())
     print(recipes)
     return render_template("recipes.html", recipes=recipes)
@@ -167,5 +176,28 @@ def get_recipes():
 
 @app.route("/create_recipe", methods=["GET", "POST"])
 def create_recipe():
-    total_time = 0
-    return render_template("create_recipe.html", total_time=total_time)
+    '''
+    create a recipe document and send it to mongo db
+    '''
+    # get the available categories
+    get_categories = list(
+        Category.query.order_by(Category.category_name).all())
+
+    if request.method == "POST":
+        # create the document to be sent to db
+        recipe = {
+            "category_id": request.form.get("category_id"),
+            "recipe_name": request.form.get("recipe_name"),
+            "total_time": request.form.get("total_time"),
+            "cook_time": request.form.get("cook_time"),
+            "prep_time": request.form.get("prep_time"),
+            "servings": request.form.get("servings"),
+            "ingredients": request.form.get("ingredientsJSON"),
+            "steps": request.form.get("stepsJSON"),
+            "created_by": session["user"]
+        }
+
+        mongo.db.instructions.insert_one(recipe)
+        flash("Recipe successfully saved")
+        return redirect(url_for("get_recipes"))
+    return render_template("create_recipe.html", categories=get_categories)
