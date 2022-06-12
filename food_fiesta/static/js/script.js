@@ -12,8 +12,15 @@ document.addEventListener('DOMContentLoaded', function () {
   M.FormSelect.init(list_elems);
   totalTime();
 });
+
 // count the steps for preparation
 let stepCount = 1;
+
+// ingredients list
+let ingredients = [];
+
+// preparation steps object
+let stepsList = {};
 
 /**
  * update the create_recipe form total time by adding cook_time and prep_time
@@ -35,7 +42,7 @@ function totalTime() {
 
   document.getElementById("total_time").value = totalTime;
 }
-let ingredients = [];
+
 /**
  * Add ingredients to the list and display them
  */
@@ -47,7 +54,6 @@ function addIngredient() {
   }
 
   // add items to the ingredients list
-  
   let ingredient = document.getElementById("ingredients").value;
   ingredients.push(ingredient);
   document.getElementById("ingredients").value = "";
@@ -59,24 +65,30 @@ function addIngredient() {
   });
 }
 
-
+/**
+ * add preparation steps into an object and displays it on the screen
+ */
 function addStep() {
   let stepList = document.getElementById("stepsList");
-  // show the firld if hidden
+  // show the field if hidden
   if (stepList.classList.contains("hide")) {
     stepList.classList.remove("hide");
   }
 
-  let stepsList = {}
   let stepValue = document.getElementById("steps").value;
+  // add properties to object
   stepsList[stepCount] = stepValue;
-  document.getElementById("steps").value = "";
+  document.getElementById("steps").value = ""; // clear the typed in text
   stepCount++;
   document.getElementById("prep_step").innerText = `Preparation step ${stepCount}`;
 
+  // empty the displayed list
+  document.getElementById("stepsList").innerHTML = "";
+
+  // display the object with new values
   for (step in stepsList) {
     document.getElementById("stepsList").innerHTML += `<p class="col s2">Step ${step}: 
-      </p><textarea disabled class="materialize-textarea">${stepsList[step]}</textarea>`
+      </p><textarea disabled class="col s10 materialize-textarea">${stepsList[step]}</textarea>`
   }
 }
 
