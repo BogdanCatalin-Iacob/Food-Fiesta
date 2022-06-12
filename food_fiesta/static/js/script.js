@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
   totalTime();
 });
 
+let recipeForm = document.getElementById("createRecipeForm");
+let addButton = document.getElementById("addButton");
+let addStepButton = document.getElementById("addStepButton");
+
 // count the steps for preparation
 let stepCount = 1;
 
@@ -27,8 +31,9 @@ let stepsList = {};
  */
 function totalTime() {
   // get the values from the form
-  let cookTime = parseInt(document.getElementById("cook_time").value);
   let prepTime = parseInt(document.getElementById("prep_time").value);
+  let cookTime = parseInt(document.getElementById("cook_time").value);
+  
   let totalTime = 0;
 
   // check if is any value in the fields
@@ -56,12 +61,14 @@ function addIngredient() {
   // add items to the ingredients list
   let ingredient = document.getElementById("ingredients").value;
   ingredients.push(ingredient);
-  document.getElementById("ingredients").value = "";
+  document.getElementById("ingredients").value = ""; //clear the typed value
+
+  
+  document.getElementById("ingredientsList").innerHTML = ""; //empty the displayed list
 
   // display all the items from the ingredients list
-  document.getElementById("ingredientsList").innerHTML = "";
   ingredients.forEach(item => {
-    document.getElementById("ingredientsList").innerHTML += `<input disabled class="col s12 m4 l3" type="text" value="${item}">`
+    document.getElementById("ingredientsList").innerHTML += `<input disabled class="col s12 m4 l3" type="text" value="${item}">`;
   });
 }
 
@@ -86,22 +93,32 @@ function addStep() {
   document.getElementById("stepsList").innerHTML = "";
 
   // display the object with new values
-  for (step in stepsList) {
+  for (let step in stepsList) {
     document.getElementById("stepsList").innerHTML += `<p class="col s2">Step ${step}: 
-      </p><textarea disabled class="col s10 materialize-textarea">${stepsList[step]}</textarea>`
+      </p><textarea disabled class="col s10 materialize-textarea">${stepsList[step]}</textarea>`;
   }
 }
 
-// function handleSubmit(event){
-//   // stop the form submission
-//   event.preventDefault();
+/**
+ * create json for ingredients and preparation steps
+ * before submiting the create recipe form
+ */
+function handleSubmit(event) {
+  // stop the form submission
+  event.preventDefault();
 
+  let ingredientsJson = JSON.stringify(ingredients);
+  document.getElementById("ingredientsJSON").value = ingredientsJson;
 
-// }
+  let stepsJson = JSON.stringify(stepsList);
+  document.getElementById("stepsJSON").value = stepsJson;
+
+  recipeForm.submit();
+}
+
+// add create recipe form event listener
+recipeForm.addEventListener("submit", handleSubmit);
 
 // add ingredient and steps buttons event listeners
-let addButton = document.getElementById("addButton");
-let addStepButton = document.getElementById("addStepButton");
-
 addButton.addEventListener("click", addIngredient);
 addStepButton.addEventListener("click", addStep);
