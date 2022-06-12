@@ -1,8 +1,14 @@
+'''
+Creates the routes to pages.
+Get / send data from / to db
+'''
+
 import json
 from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from food_fiesta import app, db, mongo
 from food_fiesta.models import Category, Users
+from bson.objectid import ObjectId # render mongoDb docs by their unique id
 
 
 @app.route("/")
@@ -201,3 +207,16 @@ def create_recipe():
         flash("Recipe successfully saved")
         return redirect(url_for("get_recipes"))
     return render_template("create_recipe.html", categories=get_categories)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    '''
+    edit the selected recipe and
+    save changes into db
+    '''
+    recipe = mongo.db.instructions.find_one({"_id": ObjectId(recipe_id)})
+
+    # recipes = list(mongo.db.instructions.find())
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
