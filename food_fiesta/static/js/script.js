@@ -11,7 +11,51 @@ document.addEventListener('DOMContentLoaded', function () {
   let list_elems = document.querySelectorAll('select');
   M.FormSelect.init(list_elems);
   totalTime();
+
+  validateMaterializeSelect();
 });
+
+
+// code credit: [codeinstitute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first)
+/**
+ * Make the Category Choose be mandatory before submitting the form
+ */
+function validateMaterializeSelect() {
+  let classValid = "border-bottom: 1px solid #4caf50; box-shadow: 0 1px 0 0 #4caf50;";
+  let classInvalid = "border-bottom: 1px solid #f44336; box-shadow: 0 1px 0 0 #f44336;";
+  let selectValidate = document.querySelector("select.validate");
+  let selectWrapperInput = document.querySelector(".select-wrapper input.select-dropdown");
+  if (selectValidate.hasAttribute("required")) {
+    selectValidate.style.cssText = "display: block; height: 0; padding: 0; width: 0; position: absolute;";
+  }
+  selectWrapperInput.addEventListener("focusin", (e) => {
+    e.target.parentNode.addEventListener("change", () => {
+      ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
+      for (let i = 0; i < ulSelectOptions.length; i++) {
+        if (ulSelectOptions[i].className == "selected" && ulSelectOptions[i].hasAttribute != "disabled") {
+          e.target.style.cssText = classValid;
+        }
+      }
+    });
+  });
+  selectWrapperInput.addEventListener("click", (e) => {
+    ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
+    for (let i = 0; i < ulSelectOptions.length; i++) {
+      if (ulSelectOptions[i].className == "selected" && ulSelectOptions[i].hasAttribute != "disabled" && ulSelectOptions[i].style.backgroundColor == "rgba(0, 0, 0, 0.03)") {
+        e.target.style.cssText = classValid;
+      } else {
+        e.target.addEventListener("focusout", () => {
+          if (e.target.parentNode.childNodes[3].hasAttribute("required")) {
+            if (e.target.style.borderBottom != "1px solid rgb(76, 175, 80)") {
+              e.target.style.cssText = classInvalid;
+            }
+          }
+        });
+      }
+    }
+  });
+}
+// end of Category validation
 
 let recipeForm = document.getElementById("createRecipeForm");
 let addButton = document.getElementById("addButton");
@@ -33,7 +77,7 @@ function totalTime() {
   // get the values from the form
   let prepTime = parseInt(document.getElementById("prep_time").value);
   let cookTime = parseInt(document.getElementById("cook_time").value);
-  
+
   let totalTime = 0;
 
   // check if is any value in the fields
@@ -63,7 +107,7 @@ function addIngredient() {
   ingredients.push(ingredient);
   document.getElementById("ingredients").value = ""; //clear the typed value
 
-  
+
   document.getElementById("ingredientsList").innerHTML = ""; //empty the displayed list
 
   // display all the items from the ingredients list
