@@ -161,6 +161,9 @@ Home Page<br>
     - I created a new js function (totalTime()) to get cook_time and prep_time values from the form 
     and set the addition of them to the form's total_time value
 
+- On the Create Recipe form, when user added new ingredient or new preparation step, they were displayed as duplicated values
+    - I made the ingredients[] and stepsList{} global variables and cleared the displayed text before iterate through them
+
 ***
 ## Deployment
 
