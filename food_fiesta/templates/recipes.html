@@ -6,20 +6,23 @@
 
 <ul class="collapsible">
     {% for recipe in recipes %}
-        <li>
-            <div class="collapsible-header black-text grey lighten-4 text-shadow"><i
-                    class="fas fa-caret-down"></i><strong>{{ recipe.recipe_name }} : </strong><span>&nbsp; servings:
+    <li>
+        <div class="collapsible-header black-text grey lighten-4 text-shadow">
+            <div class="col s3">
+                <a href="" class="teal lighten-5 black-text waves-effect waves-light btn-small">Edit</a>
+                <i class="fas fa-caret-down"></i><strong>{{ recipe.recipe_name }} : </strong><span>&nbsp; servings:
                     {{ recipe.servings }}</span>
             </div>
-            <div class="collapsible-body">
-                <div class="row">
-                    <div class="col s12 m6 l3">Total time : &nbsp{{ recipe.total_time }}</div>
-                    <div class="col s12 m6 l3">Preparation time : &nbsp{{ recipe.prep_time }}</div>
-                    <div class="col s12 m6 l3">Cooking time : &nbsp{{ recipe.cook_time }}</div>
-                    <div class="col s12 m6 l3">Recipe by : &nbsp{{ recipe.created_by }}</div>
-                </div>
+        </div>
+        <div class="collapsible-body">
+            <div class="row">
+                <div class="col s12 m6 l3">Total time : &nbsp{{ recipe.total_time }}</div>
+                <div class="col s12 m6 l3">Preparation time : &nbsp{{ recipe.prep_time }}</div>
+                <div class="col s12 m6 l3">Cooking time : &nbsp{{ recipe.cook_time }}</div>
+                <div class="col s12 m6 l3">Recipe by : &nbsp{{ recipe.created_by }}</div>
             </div>
-        </li>
+        </div>
+    </li>
     {% endfor %}
 
     {% endblock %}
