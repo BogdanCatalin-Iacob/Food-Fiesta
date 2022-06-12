@@ -5,7 +5,7 @@
 <h1 class="deep-orange-text text-darken-4 center-align">Create Recipe</h1>
 
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('create_recipe') }}">
+    <form id="createRecipeForm" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('create_recipe') }}">
         <div class="card-panel grey lighten-4">
 
             <!-- Category selector -->
@@ -15,7 +15,7 @@
                     <select id="category_id" name="category_id" class="validate" required>
                         <option value="" disabled selected></option>
                         {% for category in categories %}
-                            <option value="{{ category.id }}">{{ category.category_name }}</option>
+                        <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor%}
                     </select>
                     <label for="category_id">Choose Category</label>
@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-tag prefix green-text text-lighten-2"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25"
-                        pattern="^[a-zA-Z]{5,25}$" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25" class="validate"
+                        required>
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
@@ -46,8 +46,7 @@
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" minlength="1" maxlength="10"
-                        pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
-                        required>
+                        onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate" required>
                     <label for="prep_time">Preparation time:</label>
                 </div>
 
@@ -55,15 +54,14 @@
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
                     <input id="cook_time" name="cook_time" type="number" minlength="1" maxlength="10"
-                        pattern="^[0-9]{1,10}$" onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate"
-                        required>
+                        onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate" required>
                     <label for="cook_time">Cooking time:</label>
                 </div>
 
                 <!-- Total time -->
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
-                    <input disabled id="total_time" name="total_time" value="0" type="text" class="validate">
+                    <input id="total_time" name="total_time" value="0" type="text" class="validate">
                     <label for="total_time">Total time:</label>
                 </div>
             </div>
@@ -71,6 +69,8 @@
             <!-- Ingredients -->
             <div class="row">
                 <div id="ingredientsList" class="col s12 hide"></div>
+                <!-- hold json string of ingredients -->
+                <input class="hide" id="ingredientsJSON" name="ingredientsJSON">
             </div>
             <div class="row">
                 <div class="input-field col s10">
@@ -85,6 +85,8 @@
             <!-- Preparation -->
             <div class="row">
                 <div id="stepsList" class="col s12 hide"></div>
+                <!-- holds json string of steps -->
+                <input class="hide" id="stepsJSON" name="stepsJSON">
             </div>
             <div class="row">
                 <div class="input-field col s10">
