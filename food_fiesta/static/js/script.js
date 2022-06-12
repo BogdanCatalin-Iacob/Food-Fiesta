@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
   M.FormSelect.init(list_elems);
   totalTime();
 });
+// count the steps for preparation
+let stepCount = 1;
 
 /**
  * update the create_recipe form total time by adding cook_time and prep_time
@@ -33,7 +35,7 @@ function totalTime() {
 
   document.getElementById("total_time").value = totalTime;
 }
-
+let ingredients = [];
 /**
  * Add ingredients to the list and display them
  */
@@ -45,17 +47,18 @@ function addIngredient() {
   }
 
   // add items to the ingredients list
-  let ingredients = [];
+  
   let ingredient = document.getElementById("ingredients").value;
   ingredients.push(ingredient);
   document.getElementById("ingredients").value = "";
 
   // display all the items from the ingredients list
+  document.getElementById("ingredientsList").innerHTML = "";
   ingredients.forEach(item => {
     document.getElementById("ingredientsList").innerHTML += `<input disabled class="col s12 m4 l3" type="text" value="${item}">`
   });
 }
-let stepCount = 1;
+
 
 function addStep() {
   let stepList = document.getElementById("stepsList");
@@ -76,6 +79,13 @@ function addStep() {
       </p><textarea disabled class="materialize-textarea">${stepsList[step]}</textarea>`
   }
 }
+
+// function handleSubmit(event){
+//   // stop the form submission
+//   event.preventDefault();
+
+
+// }
 
 // add ingredient and steps buttons event listeners
 let addButton = document.getElementById("addButton");
