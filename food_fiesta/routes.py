@@ -186,9 +186,12 @@ def profile():
     '''
     display's profile page of the user in session
     '''
+    # get the recipes from db to display the user's created recipes
     recipes = list(mongo.db.instructions.find())
     return render_template(
-        "profile.html", user_name=session["user"].capitalize(), recipes=recipes)
+        "profile.html",
+        user_name=session["user"].capitalize(),
+        recipes=recipes)
 
 
 @app.route("/get_recipes")
