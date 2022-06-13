@@ -164,6 +164,13 @@ Home Page<br>
 - On the Create Recipe form, when user added new ingredient or new preparation step, they were displayed as duplicated values
     - I made the ingredients[] and stepsList{} global variables and cleared the displayed text before iterate through them
 
+- The navbar links were displayed all the time for all users
+    - I put condition in base.html to be displayed depending on logged in user
+        - if not log in Home, LogIn and Register links are displayed
+        - if logged in as standard user Create recipe will be displayed as well
+        - if logged in as admin Categories is displayd as well
+
+
 ***
 ## Deployment
 
@@ -229,13 +236,15 @@ The project was started by navigating to the [template](https://github.com/Code-
 ***
 ## Credits
 -   ### Code
-   
+   - The code for validate materialize select was taken from [codeinstitute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first)
+   - The code for sticky footer was taken from Materializecss (https://materializecss.com/footer.html) 
 
 -   ### Content
     
 
 -   ### Media
-    
+    - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/uB7q7aipU2o)
+    - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/-bLkT8wGV0I)
 
 -   ### Acknowledgements
     - I'd like to thank my mentor Daisy McGirr for her guidance throughout my project.<br>
