@@ -84,6 +84,22 @@ Home Page<br>
 
     - The header contains the logo of the website in the center of the navigation bar. This will also redirect users back to the home page once clicking on it. On       smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. I chose a dropdown because I think it works better and is more presentable on smaller devices. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.
 
+    - Each page can be accessed from a mobile device
+
+    - Standard user features
+        - Registration page
+        - Login page
+        - Logout page
+        - Create recipe page
+        - View recipes
+        - Edit recipe page
+        - Delete Recipe
+    - Admin user features on top of the standard features
+        - Create categories
+        - View categories
+        - Edit categories
+        - Delete categories
+
     - The footer is intentionally simple to keep up with the simplicity of the rest of the site. It contains social network links .
 
 
@@ -94,6 +110,8 @@ Home Page<br>
     ![browser-tab-icon]()<br>
 
 -   ### Features Left to Implement
+
+    - Admin user to be able to create users and give the admin privileges
    
 
 ***
@@ -105,18 +123,23 @@ Home Page<br>
 * CSS
 	* This project uses custom written CSS to style the Website.
 * Flask
+    * This is used as the main connection between frontend and backend
 * Python
+    * This is used as the backend of the project
 * Postgresql
+    * This is used as database for Users and Categories 
 * MongoDB
+    * This is used as database for Recipes details (name, ingrediets, cooking steps, cooking time, preparation time, owner of the recipe)
 * Materialize
+    * This is used as frontend framework to display the content in an organized way
 * [Font Awesome](https://fontawesome.com/)
-	* Font awesome Icons are used for the Social media links contained in the Footer section of the website and for the benefits found on the index.html page.
+	* Font awesome Icons are used for the Social media links contained in the Footer section of the website
 * [Google Fonts](https://fonts.google.com/)
 	* Google fonts are used throughout the project to import the *Spectral* and *Lora* fonts.
 * [Gitpod](https://gitpod.io/)
 	* Gitpod is the tool used to develop the Website.
 * [GitHub](https://github.com/)
-	* GithHub is the hosting site used to store the source code for the Website and [Git Pages](https://pages.github.com/) is used for the deployment of the live site.
+	* GithHub is the hosting site used to store the source code for the Website
 * [Git](https://git-scm.com/)
 	* Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
 * [Pixlr](https://pixlr.com/)
@@ -169,6 +192,9 @@ Home Page<br>
         - if not log in Home, LogIn and Register links are displayed
         - if logged in as standard user Create recipe will be displayed as well
         - if logged in as admin Categories is displayd as well
+
+- Categories could be modified by any user if accessed via direct link
+    - add conditional statement to be admin in order to modify the Categories in any way
 
 
 ***
