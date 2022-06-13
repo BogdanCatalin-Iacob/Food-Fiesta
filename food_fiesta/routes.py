@@ -8,7 +8,7 @@ from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from food_fiesta import app, db, mongo
 from food_fiesta.models import Category, Users
-from bson.objectid import ObjectId # render mongoDb docs by their unique id
+from bson.objectid import ObjectId   # render mongoDb docs by their unique id
 
 
 @app.route("/")
@@ -24,6 +24,10 @@ def categories():
     '''
     render the categories from db on categories.html page
     '''
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit Categories!")
+        return redirect(url_for("get_recipes"))
+
     get_categories = list(
         Category.query.order_by(Category.category_name).all())
     return render_template("categories.html", categories=get_categories)
