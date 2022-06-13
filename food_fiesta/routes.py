@@ -197,6 +197,11 @@ def create_recipe():
     '''
     create a recipe document and send it to mongo db
     '''
+    # check if user is logged in
+    if "user" not in session:
+        flash("You have to be logged in to create a recipe")
+        return redirect(url_for("get_recipes"))
+
     # get the available categories
     get_categories = list(
         Category.query.order_by(Category.category_name).all())
