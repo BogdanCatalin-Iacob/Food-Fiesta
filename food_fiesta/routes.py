@@ -14,9 +14,9 @@ from bson.objectid import ObjectId # render mongoDb docs by their unique id
 @app.route("/")
 def home():
     '''
-    render the base.html page
+    render the home.html page
     '''
-    return render_template("recipes.html")
+    return render_template("home.html")
 
 
 @app.route("/categories")
@@ -166,8 +166,9 @@ def profile():
     '''
     display's profile page of the user in session
     '''
+    recipes = list(mongo.db.instructions.find())
     return render_template(
-        "profile.html", user_name=session["user"].capitalize())
+        "profile.html", user_name=session["user"].capitalize(), recipes=recipes)
 
 
 @app.route("/get_recipes")
