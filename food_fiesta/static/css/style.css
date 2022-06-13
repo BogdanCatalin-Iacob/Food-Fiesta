@@ -3,33 +3,36 @@ regardless the size of body content
 => code taken from Materializecss (https://materializecss.com/footer.html) 
 */
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  .btn-small{
-    margin: 0.5rem;
-  }
+/********** collapsible element **********/
+.btn-small {
+  margin: 0.5rem;
+}
 
-  .collapsible-header .col strong{
-    margin:0.5rem;
-    line-height: 2rem;
-  }
+.collapsible-header .col strong {
+  margin: 0.5rem;
+  line-height: 2rem;
+}
 
-  #modal-text{
-    font-size: 2rem;
-  }
+#modal-text {
+  font-size: 2rem;
+}
 
-  #social i{
-    font-size: 3rem;
-    margin: 0.5rem;
-  }
-  footer i:hover {
-    color: #66ff00;
-    transform: rotate(20deg);
-  }
+/********** footer **********/
+#social i {
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+footer i:hover {
+  color: #66ff00;
+  transform: rotate(20deg);
+}
