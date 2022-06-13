@@ -6,9 +6,9 @@ Get / send data from / to db
 import json
 from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from bson.objectid import ObjectId   # render mongoDb docs by their unique id
 from food_fiesta import app, db, mongo
 from food_fiesta.models import Category, Users
-from bson.objectid import ObjectId   # render mongoDb docs by their unique id
 
 
 @app.route("/")
@@ -24,6 +24,7 @@ def categories():
     '''
     render the categories from db on categories.html page
     '''
+    # check if user is logged in as admin
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to edit Categories!")
         return redirect(url_for("get_recipes"))
@@ -38,6 +39,11 @@ def add_category():
     '''
     add a created category into database
     '''
+    # check if user is logged in as admin
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit Categories!")
+        return redirect(url_for("get_recipes"))
+
     if request.method == "POST":
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
@@ -51,6 +57,11 @@ def edit_category(category_id):
     '''
     edit a category name and save on db
     '''
+    # check if user is logged in as admin
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit Categories!")
+        return redirect(url_for("get_recipes"))
+
     category = Category.query.get_or_404(category_id)
     if request.method == "POST":
         category.category_name = request.form.get("category_name")
@@ -65,6 +76,11 @@ def delete_category(category_id):
     delete the category based on category id
     if delete button is clicked
     '''
+    # check if user is logged in as admin
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit Categories!")
+        return redirect(url_for("get_recipes"))
+
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
     db.session.commit()
