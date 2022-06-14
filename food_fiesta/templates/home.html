@@ -13,7 +13,7 @@
 
 <div class="row center">
   <div class="col s12 m6">
-    <a href="{{ url_for('create_recipe') }}" id="card-link">
+    <a href="{{ url_for('create_recipe') }}" class="card-link">
       <div class="card large">
         <div class="card-image">
           <img src="static/images/create-recipe.jpg" alt="some cooking ingredients on a table">
@@ -21,8 +21,8 @@
         <div class="card-content center-align">
           <span class="card-title">Create Recipe</span>
           <p>Share a recipe with our community.</p>
-          <button class="col s12 btn-large light-green darken-2 text-shadow">
-            <i class="fa-solid fa-edit prefix white-text text-lighten-2"></i>Create</button>
+          <div class="col s12 btn-large light-green darken-2 text-shadow">
+            <i class="fa-solid fa-edit prefix white-text text-lighten-2"></i>Create</div>
         </div>
       </div>
     </a>
@@ -30,7 +30,7 @@
 
 
   <div class="col s12 m6">
-    <a href="{{ url_for('get_recipes') }}" id="card-link">
+    <a href="{{ url_for('get_recipes') }}" class="card-link">
       <div class="card large">
         <div class="card-image">
           <img src="static/images/mixing-pan.webp" alt="Someone mixes some food in a pan">
@@ -42,8 +42,8 @@
             <i class="fa-solid fa-book prefix white-text text-lighten-2"></i>Cook</div>
         </div>
       </div>
+    </a>
   </div>
-  </a>
 </div>
 
 {% endblock %}
