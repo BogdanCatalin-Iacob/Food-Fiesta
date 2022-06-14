@@ -167,7 +167,7 @@ Home Page<br>
 
     - All Pages were run through the [W3C HTML Validator](https://validator.w3.org/) and showed no errors.<br>
     ![html-validation]()<br>
-    ![html-validation]()<br>
+
 
     - CSS Stylesheet was run through the [W3C CSS Validator]() and showed no errors.<br>
     ![css-validation]()<br>
@@ -176,9 +176,105 @@ Home Page<br>
         - Google Chrome: no differences found
         - Opera: no differences found
         - Mozilla Firefox: <br>
-    - Test header's logo to redirect to index.html (on all pages) - worked as expected on all tested browsers
+    - Test header's logo to redirect to home.html (on all pages) - worked as expected on all tested browsers
 
-    
+    - Navbar displays: 
+        - "Home, Log in, Register" for general users => work as expected
+	    - "Home, Recipes, Create Recipe, Profile, Log out" for standard logged in user => work as expected
+		- "Home, Recipes, Categories, Create Recipe, Profile, Log out" for admin logged in user => work as expected
+
+    - Navbar on mobile: 
+        - becomes dropdown list under a "burger" icon  => work as expected
+		- has the same elements like the navbar on large screens  => work as expected
+
+    - Home page has two images with links:
+        - first link redirect logged in user to -> Create Recipe  => work as expected
+        - if user not logged in -> flash message "You must be logged in to create a recipe
+            and redirects user to recipes page  => work as expected
+        - second link redirect user to recipes page  => work as expected
+
+    - Register form:
+	    - fields must be filled in to submit the form
+		- if successfully registered redirect user to profile page  
+            => work as expected
+		- try try submit with no values -> each field if has no value displays required message 
+            => work as expected
+		- try submit with password and confirm password not matching 
+            -> flash message dispalyed at the top of the page "Password does not match" 
+                => work as expected
+		- try submit with wrong email format -> format matching error  
+            => work as expected
+		- try submit username already registered -> flash message "Username already exists" 
+            => work as expected
+		- reload the page after failed submission 
+            => work as expected
+	- click on the "Log in" link at the bottom -> redirect user to login page 
+        => work as expected
+
+    - Login form:
+	    - fields must be filled in to submit the form
+		- if successfully logged in redirect user to profile page  
+            => work as expected
+		- try submit with no values -> username field require message popup 
+            => work as expected
+		- try submit with username but no password -> password field require message popup 
+            => work as expected
+		- try submit username not registered in db 
+            -> flash message displayed at the top of the page 
+				"Wrong username or/and password" 
+                  => work as expected
+		- try submit wrong password 
+            -> flash message displayed at the top of the page
+				"Wrong username or/and password" 
+                    => work as expected
+
+	- click on the "Click here" should redirect user to register page
+         => work as expected
+
+    - Profile page
+        - display a list of recipes created by logged in user  
+            => work as expected
+	    - options to edit or create each recipe  
+            => work as expected
+
+    - Recipes page
+        - display a list of all recipes found in db 
+            => work as expected
+        - edit and delete options only for the recipes created by logged in user  
+            => work as expected
+
+    - Create recipe page
+        - display a form to be filled in with : 
+            - Category (limited to existing categories - dropdown list)
+			- Recipe name (required)
+			- Servings (required)
+			- Preparation time (required)
+			- Cooking time (required)
+			- Total time (autofill - requred - can be modified)
+			- Ingredients field (must contain a value)
+			- Preparation steps (must contain a value)
+			- Button Add Ingredient (add ingredient to recipe ingredients list)
+			- Button Add Step ( add preparation step to recipe steps list)
+	    => all work as expected
+
+    - Log out
+        - removes logged in user from session and redirect to Login page
+            with flash message : "You have been logged out"  
+                => work as expected
+
+    - Admin only - Categories page
+	    - Add category button opens a new form with one input
+	    - display categories if exist in db 
+	    - each category has Edit and Delete buttons
+	    - Edit category - category name can be edited and saved to db
+	    - Delete category - delete category from the db
+        => all work as expected
+
+    -Footer: 
+        - is the same on all website pages
+	    - links to social media open new tab 
+	    => all work as expected
+
 ### Issues and Resolutions to issues found during testing
  - Total time on the create_recipe form was not live updated:
     - I created a new js function (totalTime()) to get cook_time and prep_time values from the form 
