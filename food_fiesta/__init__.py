@@ -14,6 +14,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
+if os.environ.get("DEVELOPMENT") == "True":
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+
+
 db = SQLAlchemy(app)
 mongo = PyMongo(app)
 
