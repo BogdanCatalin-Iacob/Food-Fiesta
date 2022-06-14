@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 let recipeForm = document.getElementById("createRecipeForm");
 let addButton = document.getElementById("addButton");
 let addStepButton = document.getElementById("addStepButton");
+let addStepEditButton = document.getElementById("addStepButtonEdit");
 
 // count the steps for preparation
 let stepCount = 1;
@@ -123,7 +124,6 @@ function addIngredient() {
 function addStep() {
   let emptyFieldPrep = document.getElementById("empty-field-prep");
   let stepList = document.getElementById("steps-list");
-  let stepNumber = document.getElementById("step-count");
 
   // delete empty field message from display
   emptyFieldPrep.classList.add("hide");
@@ -131,7 +131,6 @@ function addStep() {
   // show the fields if hidden
   if (stepList.classList.contains("hide")) {
     stepList.classList.remove("hide");
-    stepNumber.classList.remove("hide");
   }
 
   let stepValue = document.getElementById("steps").value;
@@ -141,13 +140,40 @@ function addStep() {
     emptyFieldPrep.classList.remove("hide");
   } else {
     // add properties to object
-    stepsList[stepCount] = stepValue;
     document.getElementById("steps").value = ""; // clear the typed in text
     // display the inserted values on the screen above input field
-    document.getElementById("step-count").innerHTML += `<input type="text" disabled value="${stepCount}"></div>`;
-    document.getElementById("steps-list").innerHTML += `<input type="text" name="stepsList" value="${stepValue}">`;
+    document.getElementById("steps-list").innerHTML += `<span>Step ${stepCount}</span><input type="text" name="stepsList" value="${stepValue}">`;
     stepCount++;
     document.getElementById("prep-step").innerText = `Preparation step ${stepCount}`;
+  }
+}
+
+let stepNumberRecorded = 6;
+
+function addStepEdit() {
+  let emptyFieldPrep = document.getElementById("empty-field-prep");
+  let stepList = document.getElementById("steps-list");
+  // let stepNumber = document.getElementById("step-count");
+
+
+  // delete empty field message from display
+  emptyFieldPrep.classList.add("hide");
+
+
+  let stepValue = document.getElementById("steps").value;
+
+  if (stepValue == null || stepValue == "") {
+    // show error message if empty field 
+    emptyFieldPrep.classList.remove("hide");
+  } else {
+    stepNumberRecorded += 1;
+    // add properties to object
+    document.getElementById("steps").value = ""; // clear the typed in text
+    // display the inserted values on the screen above input field
+    document.getElementById("step-count").innerHTML += `<input type="text" disabled value="${stepNumberRecorded}">`;
+    document.getElementById("steps-list").innerHTML += `<input type="text" name="stepsList" value="${stepValue}">`;
+    stepNumberRecorded++;
+    document.getElementById("prep-step").innerText = `Preparation step ${stepNumberRecorded}`;
   }
 }
 
