@@ -57,6 +57,15 @@ The live website can be found [here]().
 
 -   ### Structure
 
+    - All Pages will contain a Navigation menu at the top of the Webpage that directs them to a new Page to allow users to Navigate the site easily. The Nav Menu will be collapsable on a Mobile device to make use of space on smaller devices.
+    
+    - Materialize framework will be used to make the website resposive on different devices
+    and display organised content
+
+    - All pages will be responsive and the layouts will change dependant on screen size. This is to ensure content flow is appealing, images are displayed properly and that the content is not shrunk side by side, so small that it is unreadable
+
+    - All pages will contain a Footer Element with Contact Information, and Social Media Icons. The icons used will be from font-awesome. These are referenced below in the Technologies section of this document
+
 
 -   ### Design
     -   #### Colour Scheme
