@@ -20,10 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
   validateMaterializeSelect();
 });
 
-let recipeForm = document.getElementById("createRecipeForm");
+// form add element buttons
 let addButton = document.getElementById("addButton");
 let addStepButton = document.getElementById("addStepButton");
-let addStepEditButton = document.getElementById("addStepButtonEdit");
 
 // count the steps for preparation
 let stepCount = 1;
@@ -142,38 +141,9 @@ function addStep() {
     // add properties to object
     document.getElementById("steps").value = ""; // clear the typed in text
     // display the inserted values on the screen above input field
-    document.getElementById("steps-list").innerHTML += `<span>Step ${stepCount}</span><input type="text" name="stepsList" value="${stepValue}">`;
+    stepList.innerHTML += `<span>Step ${stepCount}</span><textarea type="text" name="stepsList">${stepValue}</textarea>`;
     stepCount++;
     document.getElementById("prep-step").innerText = `Preparation step ${stepCount}`;
-  }
-}
-
-let stepNumberRecorded = 6;
-
-function addStepEdit() {
-  let emptyFieldPrep = document.getElementById("empty-field-prep");
-  let stepList = document.getElementById("steps-list");
-  // let stepNumber = document.getElementById("step-count");
-
-
-  // delete empty field message from display
-  emptyFieldPrep.classList.add("hide");
-
-
-  let stepValue = document.getElementById("steps").value;
-
-  if (stepValue == null || stepValue == "") {
-    // show error message if empty field 
-    emptyFieldPrep.classList.remove("hide");
-  } else {
-    stepNumberRecorded += 1;
-    // add properties to object
-    document.getElementById("steps").value = ""; // clear the typed in text
-    // display the inserted values on the screen above input field
-    document.getElementById("step-count").innerHTML += `<input type="text" disabled value="${stepNumberRecorded}">`;
-    document.getElementById("steps-list").innerHTML += `<input type="text" name="stepsList" value="${stepValue}">`;
-    stepNumberRecorded++;
-    document.getElementById("prep-step").innerText = `Preparation step ${stepNumberRecorded}`;
   }
 }
 
