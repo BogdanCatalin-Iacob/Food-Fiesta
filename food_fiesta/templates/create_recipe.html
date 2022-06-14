@@ -68,11 +68,12 @@
 
             <!-- Ingredients -->
             <div class="row">
-                <div id="ingredientsList" class="col s12 hide"></div>
+                <div id="ingredients-list" class="col s12 hide"></div>
                 <!-- hold json string of ingredients -->
-                <input class="hide" id="ingredientsJSON" name="ingredientsJSON">
+                
             </div>
             <div class="row">
+                <span id="empty-field" class="hide">Field cannot be empty</span>
                 <div class="input-field col s10">
                     <i class="fa-solid fa-list prefix green-text text-lighten-2"></i>
                     <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50"
@@ -84,16 +85,17 @@
 
             <!-- Preparation -->
             <div class="row">
-                <div id="stepsList" class="col s12 hide"></div>
+                <div id="step-count"class="col s1 hide"></div>
+                <div id="steps-list" class="col s11 hide"></div>
                 <!-- holds json string of steps -->
-                <input class="hide" id="stepsJSON" name="stepsJSON">
             </div>
             <div class="row">
+                <span id="empty-field-prep" class="hide">Field cannot be empty</span>
                 <div class="input-field col s10">
                     <i class="fa-solid fa-list-ol prefix green-text text-lighten-2"></i>
-                    <textarea id="steps" name="steps" minlength="3" maxlength="300"
+                    <textarea id="steps" name="steps" minlength="3"
                         class="materialize-textarea"></textarea>
-                    <label for="steps"><span id="prep_step">Preparation step 1:</span></label>
+                    <label for="steps"><span id="prep-step">Preparation step 1:</span></label>
                 </div>
                 <div id="addStepButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
             </div>
