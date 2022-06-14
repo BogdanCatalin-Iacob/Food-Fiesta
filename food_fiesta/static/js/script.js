@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
   validateMaterializeSelect();
 });
 
+let recipeForm = document.getElementById("createRecipeForm");
+let addButton = document.getElementById("addButton");
+let addStepButton = document.getElementById("addStepButton");
+
+// count the steps for preparation
+let stepCount = 1;
 
 // code credit: [codeinstitute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first)
 /**
@@ -61,19 +67,6 @@ function validateMaterializeSelect() {
   });
 }
 // end of Category validation
-
-let recipeForm = document.getElementById("createRecipeForm");
-let addButton = document.getElementById("addButton");
-let addStepButton = document.getElementById("addStepButton");
-
-// count the steps for preparation
-let stepCount = 1;
-
-// ingredients list
-let ingredients = [];
-
-// preparation steps object
-let stepsList = {};
 
 /**
  * update the create_recipe form total time by adding cook_time and prep_time
@@ -157,20 +150,6 @@ function addStep() {
     document.getElementById("prep-step").innerText = `Preparation step ${stepCount}`;
   }
 }
-
-/**
- * create json for ingredients and preparation steps
- * before submiting the create recipe form
- */
-function handleSubmit(event) {
-  // stop the form submission
-  event.preventDefault();
-
-  recipeForm.submit();
-}
-
-// add create recipe form event listener
-recipeForm.addEventListener("submit", handleSubmit);
 
 // add ingredient and steps buttons event listeners
 addButton.addEventListener("click", addIngredient);
