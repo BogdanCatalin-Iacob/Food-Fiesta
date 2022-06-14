@@ -196,6 +196,10 @@ Home Page<br>
 - Categories could be modified by any user if accessed via direct link
     - add conditional statement to be admin in order to modify the Categories in any way
 
+- Edit Recipe page was not displaying the name of the recipe category
+    - in the category selector in if statement I had to cast the value returned from mongo db into 'int'
+    to match the type returned from postgreSQL
+
 
 ***
 ## Deployment
