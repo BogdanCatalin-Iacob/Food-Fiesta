@@ -237,10 +237,27 @@ def edit_recipe(recipe_id):
 
     # recipes = list(mongo.db.instructions.find())
     categories = list(Category.query.order_by(Category.category_name).all())
-    return render_template(
-        "edit_recipe.html",
-        recipe=recipe,
-        categories=categories)
+
+    if request.method == "POST":
+
+        # create the document to be sent to db
+        submit_recipe = {
+            "category_id": request.form.get("category_id"),
+            "recipe_name": request.form.get("recipe_name"),
+            "total_time": request.form.get("total_time"),
+            "cook_time": request.form.get("cook_time"),
+            "prep_time": request.form.get("prep_time"),
+            "servings": request.form.get("servings"),
+            "ingredients": request.form.getlist("ingredientsList"),
+            "steps": request.form.getlist("stepsList"),
+            "created_by": session["user"]
+        }
+
+        mongo.db.instructions.replace_one(
+            {"_id": ObjectId(recipe_id)}, submit_recipe)
+        flash("Recipe successfully updated")
+
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
