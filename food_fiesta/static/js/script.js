@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // select list initialization (create_recipe)
   let list_elems = document.querySelectorAll('select');
   M.FormSelect.init(list_elems);
+
+
+  let modalElems = document.querySelectorAll('.modal');
+  M.Modal.init(modalElems);
+
   totalTime();
 
   validateMaterializeSelect();
@@ -96,50 +101,60 @@ function totalTime() {
  * Add ingredients to the list and display them
  */
 function addIngredient() {
-  let ingredientsList = document.getElementById("ingredientsList");
+  let emptyField = document.getElementById("empty-field");
+  let ingredientsList = document.getElementById("ingredients-list");
+
+  // delete empty field message from display
+  emptyField.classList.add("hide");
+
   // show the field if hidden
   if (ingredientsList.classList.contains("hide")) {
     ingredientsList.classList.remove("hide");
   }
 
-  // add items to the ingredients list
   let ingredient = document.getElementById("ingredients").value;
-  ingredients.push(ingredient);
-  document.getElementById("ingredients").value = ""; //clear the typed value
 
-
-  document.getElementById("ingredientsList").innerHTML = ""; //empty the displayed list
-
-  // display all the items from the ingredients list
-  ingredients.forEach(item => {
-    document.getElementById("ingredientsList").innerHTML += `<input disabled class="col s12 m4 l3" type="text" value="${item}">`;
-  });
+  // check if the input field has any value
+  if (ingredient == null || ingredient == "") {
+    // show error message if empty field 
+    emptyField.classList.remove("hide");
+  } else {
+    document.getElementById("ingredients").value = "";
+    document.getElementById("ingredients-list").innerHTML += `<input type="text" name="ingredientsList" value="${ingredient}">`;
+  }
 }
 
 /**
  * add preparation steps into an object and displays it on the screen
  */
 function addStep() {
-  let stepList = document.getElementById("stepsList");
-  // show the field if hidden
+  let emptyFieldPrep = document.getElementById("empty-field-prep");
+  let stepList = document.getElementById("steps-list");
+  let stepNumber = document.getElementById("step-count");
+
+  // delete empty field message from display
+  emptyFieldPrep.classList.add("hide");
+
+  // show the fields if hidden
   if (stepList.classList.contains("hide")) {
     stepList.classList.remove("hide");
+    stepNumber.classList.remove("hide");
   }
 
   let stepValue = document.getElementById("steps").value;
-  // add properties to object
-  stepsList[stepCount] = stepValue;
-  document.getElementById("steps").value = ""; // clear the typed in text
-  stepCount++;
-  document.getElementById("prep_step").innerText = `Preparation step ${stepCount}`;
 
-  // empty the displayed list
-  document.getElementById("stepsList").innerHTML = "";
-
-  // display the object with new values
-  for (let step in stepsList) {
-    document.getElementById("stepsList").innerHTML += `<p class="col s2">Step ${step}: 
-      </p><textarea disabled class="col s10 materialize-textarea">${stepsList[step]}</textarea>`;
+  if (stepValue == null || stepValue == "") {
+    // show error message if empty field 
+    emptyFieldPrep.classList.remove("hide");
+  } else {
+    // add properties to object
+    stepsList[stepCount] = stepValue;
+    document.getElementById("steps").value = ""; // clear the typed in text
+    // display the inserted values on the screen above input field
+    document.getElementById("step-count").innerHTML += `<input type="text" disabled value="${stepCount}"></div>`;
+    document.getElementById("steps-list").innerHTML += `<input type="text" name="stepsList" value="${stepValue}">`;
+    stepCount++;
+    document.getElementById("prep-step").innerText = `Preparation step ${stepCount}`;
   }
 }
 
@@ -150,12 +165,6 @@ function addStep() {
 function handleSubmit(event) {
   // stop the form submission
   event.preventDefault();
-
-  let ingredientsJson = JSON.stringify(ingredients);
-  document.getElementById("ingredientsJSON").value = ingredientsJson;
-
-  let stepsJson = JSON.stringify(stepsList);
-  document.getElementById("stepsJSON").value = stepsJson;
 
   recipeForm.submit();
 }
