@@ -36,7 +36,7 @@
 This Website was created for the sole purpose of completing the third Milestone Project for the Code Institute's Full Stack Developer course. 
 It was built using the knowledge gained from the HTML, CSS, JavaScript, Python, Flask, MongoBb and SQL modules. A full list of technologies used can be found in the technologies section of this document.
 
-The live website can be found [here]().
+The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
 ![Website Mock Up]()
 
 ## User Experience (UX)
@@ -172,7 +172,7 @@ Home Page<br>
     -   #### Summary 
 
       
-        - The live Project can be found [here]().</br>
+        - The live Project can be found [here](https://food-fiesta-ms3.herokuapp.com/).</br>
 
     -   ### Test Results
 
@@ -323,23 +323,22 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 2. Attach the Postgres database:
     - In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
 
-3. Prepare the environment and settings.py file:
+3. Prepare the env and __init__.py file:
     - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
     - In your GitPod workspace, create an env.py file in the main directory. 
     - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
     - Add the SECRET_KEY value to the Config Vars in Heroku.
-    - Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
-    - Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
-    - In settings.py add the following sections:
-        - Cloudinary to the INSTALLED_APPS list
-        - STATICFILE_STORAGE
-        - STATICFILES_DIRS
-        - STATIC_ROOT
-        - MEDIA_URL
-        - DEFAULT_FILE_STORAGE
-        - TEMPLATES_DIR
-        - Update DIRS in TEMPLATES with TEMPLATES_DIR
-        - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+    - Update the __init__.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths..
+    - In env.py add the following (with values):
+        - "IP"
+        - "PORT"
+        - "DEBUG"
+        - "DEVELOPMENT"
+        - "SECRET_KEY"
+        - "MONGO_URI"
+        - "MONGO_DBNAME"
+        - "DB_URL"
+    - in Heroku config var add the same variable with values
 
 4. Store Static and Media files in Cloudinary and Deploy to Heroku:
     - Create three directories in the main directory; media, storage, and templates.
