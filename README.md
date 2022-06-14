@@ -137,9 +137,9 @@ Home Page<br>
     * This is used as the backend of the project
 * Postgresql
     * This is used as database for Users and Categories 
-* MongoDB
+* [MongoDB](https://www.mongodb.com/)
     * This is used as database for Recipes details (name, ingrediets, cooking steps, cooking time, preparation time, owner of the recipe)
-* Materialize
+* [Materialize](https://materializecss.com/)
     * This is used as frontend framework to display the content in an organized way
 * [Font Awesome](https://fontawesome.com/)
 	* Font awesome Icons are used for the Social media links contained in the Footer section of the website
@@ -151,6 +151,8 @@ Home Page<br>
 	* GithHub is the hosting site used to store the source code for the Website
 * [Git](https://git-scm.com/)
 	* Git is used as version control software to commit and push code to the GitHub repository where the source code is stored.
+* [Heroku](https://dashboard.heroku.com/)
+    * Heroku is used to deploy the web app
 * [Pixlr](https://pixlr.com/)
 	* Pixlr is used to reduce the file sizes of images before being deployed to reduce storage and bandwith.
 * [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
