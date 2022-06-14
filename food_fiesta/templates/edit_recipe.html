@@ -5,7 +5,8 @@
 <h1 class="deep-orange-text text-darken-4 center-align">Edit Recipe</h1>
 
 <div class="row">
-    <form id="editRecipeForm" class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    <form id="editRecipeForm" class="col s12 m8 offset-m2" method="POST"
+        action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
         <div class="card-panel grey lighten-4">
 
             <!-- Category selector -->
@@ -17,9 +18,8 @@
                         {% for category in categories %}
                             {% if category.id == recipe.category_id|int %}
                                 <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
-                                <!-- <option value="{{ category.category_name }}">{{ category.category_name }}</option> -->
                             {% else %}
-                                <option value="{{ category.id }}" >{{ category.category_name }}</option>
+                                <option value="{{ category.id }}">{{ category.category_name }}</option>
                             {% endif %}
                         {% endfor%}
                     </select>
@@ -31,8 +31,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-tag prefix green-text text-lighten-2"></i>
-                    <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25" value="{{ recipe.recipe_name }}" class="validate"
-                        required>
+                    <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25"
+                        value="{{ recipe.recipe_name }}" class="validate" required>
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
@@ -40,18 +40,19 @@
             <!--Preparation, cooking, total time-->
             <!-- Servings -->
             <div class="input-field col s12 m2">
-                <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
-                <input id="servings" name="servings" type="number" minlength="1" maxlength="10" pattern="^[0-9]{1,10}$"
+                <i class="fa-solid fa-bowl-food prefix green-text text-lighten-2"></i>
+                <input id="servings" name="servings" type="number" minlength="1" maxlength="10"
                     onfocus="this.value=''" value="{{ recipe.servings }}" class="validate" required>
                 <label for="prep_time">Servings:</label>
             </div>
-            <div class="row">
 
+            <div class="row">
                 <!-- Preparation time -->
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" minlength="1" maxlength="10"
-                        onfocus="this.value=''" value="{{ recipe.prep_time }}" onkeyup="totalTime()" class="validate" required>
+                        onfocus="this.value=''" value="{{ recipe.prep_time }}" onkeyup="totalTime()" class="validate"
+                        required>
                     <label for="prep_time">Preparation time:</label>
                 </div>
 
@@ -59,52 +60,51 @@
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
                     <input id="cook_time" name="cook_time" type="number" minlength="1" maxlength="10"
-                        onfocus="this.value=''" value="{{ recipe.cook_time }}" onkeyup="totalTime()" class="validate" required>
+                        onfocus="this.value=''" value="{{ recipe.cook_time }}" onkeyup="totalTime()" class="validate"
+                        required>
                     <label for="cook_time">Cooking time:</label>
                 </div>
 
                 <!-- Total time -->
                 <div class="input-field col s12 m3">
                     <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
-                    <input id="total_time" name="total_time" value="{{ recipe.total_time }}" type="text" class="validate">
+                    <input id="total_time" name="total_time" value="{{ recipe.total_time }}" type="text"
+                        class="validate">
                     <label for="total_time">Total time:</label>
                 </div>
             </div>
 
             <!-- Ingredients -->
             <div class="row">
-                <div id="ingredients-list" class="col s12 hide"></div>
-            </div>
-            <div class="row">
-                <span id="empty-field" class="hide">Field cannot be empty</span>
-                <div class="input-field col s10">
-                    <i class="fa-solid fa-list prefix green-text text-lighten-2"></i>
-                    <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50"
-                        class="validate">
-                    <label for="ingredients">Ingredients:</label>
+                <div class="col s12 center-align">Ingredients</div>
+                <div id="ingredients-list" class="col s12">
+                    {% for ingredient in recipe.ingredients %}
+                    <input type="text" name="ingredientsList" value="{{- ingredient -}}">
+                    {% endfor %}
                 </div>
-                <div id="addButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
             </div>
 
             <!-- Preparation -->
             <div class="row">
-                <div id="step-count" class="col s1 hide"></div>
-                <div id="steps-list" class="col s11 hide"></div>
-            </div>
-            <div class="row">
-                <span id="empty-field-prep" class="hide">Field cannot be empty</span>
-                <div class="input-field col s10">
-                    <i class="fa-solid fa-list-ol prefix green-text text-lighten-2"></i>
-                    <textarea id="steps" name="steps" minlength="3" class="materialize-textarea"></textarea>
-                    <label for="steps"><span id="prep-step">Preparation step 1:</span></label>
+                <div class="col s12 center-align">Cooking steps</div>
+                <div id="steps-list" class="col s12">
+                    {% for step in recipe.steps %}
+                        <!-- code for index loop taken from[stackoverflow](https://stackoverflow.com/questions/12145434/how-to-output-loop-counter-in-python-jinja-template) -->
+                        <span>Step {{- loop.index -}}: </span>
+                        <!-- end stackoverflow -->
+                        <textarea name="stepsList" class="materialize-textarea">
+                            {{- step -}}
+                        </textarea>
+                    {% endfor %}
                 </div>
-                <div id="addStepButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
             </div>
 
-            <!--Create button-->
+            <!--Edit button-->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green darken-2 text-shadow"><i
-                        class="fa-solid fa-edit prefix white-text text-lighten-2"></i> Edit recipe</button>
+                <button type="submit" class="col s12 btn-large light-green darken-2 text-shadow">
+                    <i class="fa-solid fa-edit prefix white-text text-lighten-2"></i>
+                    Edit recipe
+                </button>
             </div>
         </div>
     </form>
