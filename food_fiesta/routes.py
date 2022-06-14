@@ -3,7 +3,6 @@ Creates the routes to pages.
 Get / send data from / to db
 '''
 
-import json
 from flask import render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId   # render mongoDb docs by their unique id
@@ -257,7 +256,8 @@ def edit_recipe(recipe_id):
             {"_id": ObjectId(recipe_id)}, submit_recipe)
         flash("Recipe successfully updated")
 
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
