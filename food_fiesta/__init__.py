@@ -6,7 +6,7 @@ from flask import Flask
 from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 if os.path.exists("env.py"):
-    import env # noqa
+    import env  # noqa
 
 
 app = Flask(__name__)
@@ -29,4 +29,4 @@ db = SQLAlchemy(app)
 mongo = PyMongo(app)
 
 # routes rely on app and db variables therefore must be imported after these
-from food_fiesta import routes # noqa
+from food_fiesta import routes  # noqa
