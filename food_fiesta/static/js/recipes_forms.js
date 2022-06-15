@@ -24,7 +24,7 @@ function validateMaterializeSelect() {
   }
   selectWrapperInput.addEventListener("focusin", (e) => {
     e.target.parentNode.addEventListener("change", () => {
-      ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
+      var ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
       for (let i = 0; i < ulSelectOptions.length; i++) {
         if (ulSelectOptions[i].className == "selected" && ulSelectOptions[i].hasAttribute != "disabled") {
           e.target.style.cssText = classValid;
@@ -33,7 +33,7 @@ function validateMaterializeSelect() {
     });
   });
   selectWrapperInput.addEventListener("click", (e) => {
-    ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
+    var ulSelectOptions = e.target.parentNode.childNodes[1].childNodes;
     for (let i = 0; i < ulSelectOptions.length; i++) {
       if (ulSelectOptions[i].className == "selected" && ulSelectOptions[i].hasAttribute != "disabled" && ulSelectOptions[i].style.backgroundColor == "rgba(0, 0, 0, 0.03)") {
         e.target.style.cssText = classValid;
