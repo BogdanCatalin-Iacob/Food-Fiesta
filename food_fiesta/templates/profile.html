@@ -6,8 +6,8 @@
         <div class="col s12 m8 offset-2">
             <h3 class="deep-orange-text text-darken-4 center-align">
                 {{ user_name }}'s Profile
-            </h3 class="center-align">
-            <h4>You can manage your recipes here</h4>
+            </h3>
+            <h4 class="center-align">You can manage your recipes here</h4>
         </div>
     </div>
 
@@ -23,18 +23,17 @@
                                 class="deep-orange white-text waves-effect waves-light btn-small modal-trigger">Delete</a>
                             <i class="fas fa-caret-down"></i><strong>{{ recipe.recipe_name }} : </strong><span>&nbsp; servings:
                                 {{ recipe.servings }}</span>
-            
                         </div>
                     </div>
                     <div class="collapsible-body">
                         <div class="row">
-                            <div class="col s12 m6 l3">Total time : &nbsp{{ recipe.total_time }}</div>
-                            <div class="col s12 m6 l3">Preparation time : &nbsp{{ recipe.prep_time }}</div>
-                            <div class="col s12 m6 l3">Cooking time : &nbsp{{ recipe.cook_time }}</div>
-                            <div class="col s12 m6 l3">Recipe by : &nbsp{{ recipe.created_by }}</div>
+                            <div class="col s12 m6 l3">Preparation time : &nbsp;{{ recipe.prep_time }}</div>
+                            <div class="col s12 m6 l3">Cooking time : &nbsp;{{ recipe.cook_time }}</div>
+                            <div class="col s12 m6 l3">Recipe by : &nbsp;{{ recipe.created_by }}</div>
                         </div>
                     </div>
                 </li>
             {% endif %}
         {% endfor %}
+    </ul>
 {% endblock %}
