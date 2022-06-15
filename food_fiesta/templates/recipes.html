@@ -20,11 +20,28 @@
                             {{ recipe.servings }}</span>
                 </div>
             </div>
-            <div class="collapsible-body">
-                <div class="row">
-                    <div class="col s12 m6 l3">Preparation time : &nbsp;{{ recipe.prep_time }}</div>
-                    <div class="col s12 m6 l3">Cooking time : &nbsp;{{ recipe.cook_time }}</div>
-                    <div class="col s12 m6 l3">Recipe by : &nbsp;{{ recipe.created_by }}</div>
+            <div class="collapsible-body center-align">
+                <div class="row center-align">
+                    <div class="col s12 m6 l4 center-align"><strong>Preparation time :</strong> &nbsp;{{ recipe.prep_time }}</div>
+                    <div class="col s12 m6 l4 center-align"><strong>Cooking time :</strong> &nbsp;{{ recipe.cook_time }}</div>
+                    <div class="col s12 m6 l4 center-align"><strong>Recipe by :</strong> &nbsp;{{ recipe.created_by }}</div>
+                </div>
+                <div class="row center-align">
+                    <div class="col s12 m6 black-text text-shadow">
+                        <h5><strong>Ingredients :</strong></h5>
+                        {% for ingredient in recipe.ingredients %}
+                            <div>- &nbsp;{{- ingredient -}}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="col s12 m6 black-text text-shadow">
+                        <h5><strong>Preparation steps:</strong></h5>
+                        {% for step in recipe.steps %}
+                        <div class="row">
+                            <div><strong><u>Step: {{ loop.index }}</u></strong></div>
+                            <div>{{- step -}}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </li>
