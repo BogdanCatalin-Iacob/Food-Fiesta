@@ -71,7 +71,7 @@
   </header>
 
   <!-- Flash messages display section -->
-  <section>
+  <div>
     <!-- flash messages -->
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -82,7 +82,7 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-  </section>
+        </div>
 
   <!-- Main content of each page -->
   <main class="container">
