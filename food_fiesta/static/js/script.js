@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let modalElems = document.querySelectorAll('.modal');
   M.Modal.init(modalElems);
 
-  totalTime();
-
   validateMaterializeSelect();
 });
 
@@ -67,28 +65,6 @@ function validateMaterializeSelect() {
   });
 }
 // end of Category validation
-
-/**
- * update the create_recipe form total time by adding cook_time and prep_time
- */
-function totalTime() {
-  // get the values from the form
-  let prepTime = parseInt(document.getElementById("prep_time").value);
-  let cookTime = parseInt(document.getElementById("cook_time").value);
-
-  let totalTime = 0;
-
-  // check if is any value in the fields
-  if (cookTime >= 0 && prepTime >= 0) {
-    totalTime = cookTime + prepTime;
-  } else if (cookTime >= 0) {
-    totalTime = cookTime;
-  } else if (prepTime >= 0) {
-    totalTime = prepTime;
-  }
-
-  document.getElementById("total_time").value = totalTime;
-}
 
 /**
  * Add ingredients to the list and display them

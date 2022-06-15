@@ -13,12 +13,12 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix green-text text-lighten-2"></i>
                     <select id="category_id" name="category_id" class="validate" required>
-                        <option value="" disabled selected></option>
+                        <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor%}
                     </select>
-                    <label for="category_id">Choose Category</label>
+                    <label for="category_id">Categories</label>
                 </div>
             </div>
 
@@ -33,36 +33,30 @@
             </div>
 
             <!--Preparation, cooking, total time-->
-            <!-- Servings -->
-            <div class="input-field col s12 m2">
-                <i class="fa-solid fa-bowl-food prefix green-text text-lighten-2"></i>
-                <input id="servings" name="servings" type="number" minlength="1" maxlength="10"
-                    onfocus="this.value=''" value="0" class="validate" required>
-                <label for="prep_time">Servings:</label>
-            </div>
+            
             <div class="row">
+                <!-- Servings -->
+                <div class="input-field col s12 m3">
+                    <i class="fa-solid fa-bowl-food prefix green-text text-lighten-2"></i>
+                    <input id="servings" name="servings" type="number" min="1"
+                        onfocus="this.value=''" value="0" class="validate" required>
+                    <label for="prep_time">Servings:</label>
+                </div>
 
                 <!-- Preparation time -->
-                <div class="input-field col s12 m3">
+                <div class="input-field col s12 m5">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
-                    <input id="prep_time" name="prep_time" type="number" minlength="1" maxlength="10"
+                    <input id="prep_time" name="prep_time" type="number" min="0"
                         onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate" required>
                     <label for="prep_time">Preparation time:</label>
                 </div>
 
                 <!-- Cooking time -->
-                <div class="input-field col s12 m3">
+                <div class="input-field col s12 m4">
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
-                    <input id="cook_time" name="cook_time" type="number" minlength="1" maxlength="10"
+                    <input id="cook_time" name="cook_time" type="number" min="0"
                         onfocus="this.value=''" value="0" onkeyup="totalTime()" class="validate" required>
                     <label for="cook_time">Cooking time:</label>
-                </div>
-
-                <!-- Total time -->
-                <div class="input-field col s12 m3">
-                    <i class="fa-solid fa-bell prefix green-text text-lighten-2"></i>
-                    <input id="total_time" name="total_time" value="0" type="text" class="validate">
-                    <label for="total_time">Total time:</label>
                 </div>
             </div>
 

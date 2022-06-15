@@ -211,7 +211,6 @@ def create_recipe():
         recipe = {
             "category_id": request.form.get("category_id"),
             "recipe_name": request.form.get("recipe_name"),
-            "total_time": request.form.get("total_time"),
             "cook_time": request.form.get("cook_time"),
             "prep_time": request.form.get("prep_time"),
             "servings": request.form.get("servings"),
@@ -243,7 +242,6 @@ def edit_recipe(recipe_id):
         submit_recipe = {
             "category_id": request.form.get("category_id"),
             "recipe_name": request.form.get("recipe_name"),
-            "total_time": request.form.get("total_time"),
             "cook_time": request.form.get("cook_time"),
             "prep_time": request.form.get("prep_time"),
             "servings": request.form.get("servings"),
