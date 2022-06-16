@@ -9,7 +9,6 @@
   * [Design](#Design)
     * [Colour Scheme](#Colour-Scheme)
     * [Typography](#Typography)
-    * [Imagery](#Imagery)
     * [Wireframes](#Wireframes)
     * [Limitations](#Limitations)
 * [Features](#Features)
@@ -138,15 +137,18 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
 
 -   ### Design
     -   #### Colour Scheme
-        -   The main colours used are: . 
+        -   The main colours used are: Header/footer: #81C784, <br>
+        Heading/ category delete button: #DD2C00, <br>
+        Add/Edit category/recipes: #689F38, <br>
+        Edit recipe button: #E0F2F1,<br>
+        Forms background: #F5F5F5,<br>
+        Base colour: #FFF  <br>
+        ![Color Pallete](food_fiesta/static/images/colours/color_pallete.png)
 
     -   #### Typography
         - Font used for all heading elements: 'Lato' with Arial as fallback font in case 'Lato' is not loaded 
         - Font used for all the other elements: 'Fira Sans' with Helvetica as fallback font in case 'Fira Sans' is not loaded
         
-    -   #### Imagery
-        -   
-
     -   #### Wireframes
 Home Page<br>
 ![Home Page Wireframe](food_fiesta/static/images/Wireframes/home-page.PNG)<br>
@@ -209,6 +211,7 @@ Profile Page<br>
 -   ### Features Left to Implement
 
     - Admin user to be able to create users and give the admin privileges
+    - Admin user to be able ti edit / delete any recipe created by any user
    
 
 ***
