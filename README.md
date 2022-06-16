@@ -151,26 +151,29 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/)<br>
         - Font used for all the other elements: 'Fira Sans' with Helvetica as fallback font in case 'Fira Sans' is not loaded
         
     -   #### Wireframes
-Home Page<br>
-![Home Page Wireframe](food_fiesta/static/images/Wireframes/home-page.PNG)<br>
-Login Page<br>
-![Login Page Wireframe](food_fiesta/static/images/Wireframes/login-page.PNG)<br>
-Register Page<br>
-![Register Page Wireframe](food_fiesta/static/images/Wireframes/register-page.PNG)<br>
-Categories Page<br>
-![Categories Page Wireframe](food_fiesta/static/images/Wireframes/categories-page.PNG)<br>
-Add Category Page<br>
-![Add Category Page Wireframe](food_fiesta/static/images/Wireframes/add-category-page.PNG)<br>
-Edit Category Page<br>
-![Edit Category Page Wireframe](food_fiesta/static/images/Wireframes/edit-category-page.PNG)<br>
-Create Recipe Page<br>
-![Create Recipe Page Wireframe](food_fiesta/static/images/Wireframes/create-recipe-page.PNG)<br>
-Edit Recipe Page<br>
-![Edit Recipe Page Wireframe](food_fiesta/static/images/Wireframes/edit-recipe-page.PNG)<br>
-Recipes Page<br>
-![Recipes Page Wireframe](food_fiesta/static/images/Wireframes/recipes-page.PNG)<br>
-Profile Page<br>
-![Profile Page Wireframe](food_fiesta/static/images/Wireframes/profile-page.PNG)<br>
+        Home Page<br>
+        ![Home Page Wireframe](food_fiesta/static/images/Wireframes/home-page.PNG)<br>
+        Login Page<br>
+        ![Login Page Wireframe](food_fiesta/static/images/Wireframes/login-page.PNG)<br>
+        Register Page<br>
+        ![Register Page Wireframe](food_fiesta/static/images/Wireframes/register-page.PNG)<br>
+        Categories Page<br>
+        ![Categories Page Wireframe](food_fiesta/static/images/Wireframes/categories-page.PNG)<br>
+        Add Category Page<br>
+        ![Add Category Page Wireframe](food_fiesta/static/images/Wireframes/add-category-page.PNG)<br>
+        Edit Category Page<br>
+        ![Edit Category Page Wireframe](food_fiesta/static/images/Wireframes/edit-category-page.PNG)<br>
+        Create Recipe Page<br>
+        ![Create Recipe Page Wireframe](food_fiesta/static/images/Wireframes/create-recipe-page.PNG)<br>
+        Edit Recipe Page<br>
+        ![Edit Recipe Page Wireframe](food_fiesta/static/images/Wireframes/edit-recipe-page.PNG)<br>
+        Recipes Page<br>
+        ![Recipes Page Wireframe](food_fiesta/static/images/Wireframes/recipes-page.PNG)<br>
+        Profile Page<br>
+        ![Profile Page Wireframe](food_fiesta/static/images/Wireframes/profile-page.PNG)<br>
+
+    - #### Database
+        ![database-design](food_fiesta/static/images/features/database-design.png)
 
 
 -   ### Limitations
@@ -283,6 +286,8 @@ Profile Page<br>
     * This was used to generate the icon on browser's tab.
 * PowerPoint
     * This was used to create wireframes
+* [Wave Accessibility tool](https://wave.webaim.org/)
+    * this was used to test the website for accessibility for impaired persons
 ***
 
 ## Testing
@@ -472,6 +477,13 @@ Profile Page<br>
 
 - When a category was deleted all the recipes created with that respective category changed their category name to next available in the list
     - in delete_category() I added a statement to delete from db all the recipes related to the deleted category
+
+    #### Known bugs/errors not fixed
+    - On Create Recipe and Edit Recipe pages, on select dropdown [wave-accessibility](https://wave.webaim.org/) detects a missing label
+        although on my code the <label> exists for the same id="category_id" as the <select>
+        - this is not fixed as I can't locate the issue yet
+        ![wave-error-form](food_fiesta/static/images/label-error.png)
+        ![wave-error-code](food_fiesta/static/images/label-error-2.png)
 
 ***
 ## Deployment
