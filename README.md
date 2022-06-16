@@ -174,7 +174,7 @@ Profile Page<br>
 
 -   ### Limitations
     - With this release:
-        - Admin is not able to edit/delete any recipe created by any user
+        - Admin is not able to edit/delete any recipe created by any user (except own recipes)
         - Admin can't set superusers (admins)
         - Users can't upload photos of the final product
 
@@ -185,7 +185,7 @@ Profile Page<br>
 
     - Each page of the website features a consistent responsive navigational system:
 
-    - The header contains the logo of the website in the center of the navigation bar. This will also redirect users back to the home page once clicking on it. On       smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. I chose a dropdown because I think it works better and is more presentable on smaller devices. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.
+    - The header contains the logo of the website in the center of the navigation bar. This will also redirect users back to the home page once clicking on it. On       smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.
 
     - Each page can be accessed from a mobile device
 
@@ -215,9 +215,9 @@ Profile Page<br>
 -   ### Features Left to Implement
 
     - Admin user to be able to create users and give the admin privileges
-    - Admin user to be able ti edit / delete any recipe created by any user
+    - Admin user to be able to edit / delete any recipe created by any user
+    - Users to be able to upload photos of final product
    
-
 ***
 
 ## Technologies
@@ -258,6 +258,8 @@ Profile Page<br>
     * tecnisih.com Multi Device Website Mockup Generator was used to create the Mock up image in this README.
 * [Favicon](https://favicon.io/)
     * This was used to generate the icon on browser's tab.
+* PowerPoint
+    * This was used to create wireframes
 ***
 
 ## Testing
