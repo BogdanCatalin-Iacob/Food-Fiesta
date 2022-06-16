@@ -171,7 +171,32 @@ Home Page<br>
 
     -   #### Summary 
 
-      
+        Manual testing will be done on three different browsers (Chrome, Firefox, Opera)
+	    Testing will be done for:
+		- Website name in the navbar redirects to home page
+		- Home page links redirect to create recipe or recipes pages
+		- Registration page to register unique users
+			- all fields are filled in
+			- password confirmation to match the password
+			- link to redirect to login page
+		- Login page to log in only existing users
+			- display a flas message if no username or wrong username or password
+			- link to redirect to register page
+		- Profile page to display name of the logged in user
+			- display the user's created recipes
+			- buttons to edit/delete recipe
+		- Recipes page to display a full list of recipes
+			- show edit/delete buttons only on recipes created by logged in user
+		- Create recipe page display a form to be filled in with all required fields
+		- Edit recipe page will display the recipes details with possibility to change and save the changes
+		- Log out link in the navbar to remove current user from session
+		- Admin category page to be displayed in the navbar
+			- a list of categories dispalyed on the category page
+			- a button to create new categories must be at the top of the page 
+			and redirect to create category page
+			- edit / delete buttons for each category
+		- Footer links open the urls in new browser tabs
+
         - The live Project can be found [here](https://food-fiesta-ms3.herokuapp.com/).</br>
 
     -   ### Test Results
