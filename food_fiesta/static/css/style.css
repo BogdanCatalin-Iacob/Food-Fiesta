@@ -44,6 +44,10 @@ main {
   font-size: 2rem;
 }
 
+.fa-circle-plus{
+  margin-left: 00.5rem;
+}
+
 /********** footer **********/
 footer i:hover {
   color: #66ff00;
