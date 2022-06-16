@@ -12,13 +12,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix green-text text-lighten-2"></i>
-                    <select id="category_id" name="category_id" class="validate" required>
+                    <select aria-label="category selection list" id="category_id" name="category_id" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
                             <option value="{{ category.id }}">{{ category.category_name }}</option>
                         {% endfor%}
                     </select>
-                    <label for="category_id">Categories</label>
+                    <label for="category_id" class="black-text">Categories</label>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     <i class="fa-solid fa-tag prefix green-text text-lighten-2"></i>
                     <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25" class="validate"
                         required>
-                    <label for="recipe_name">Recipe name</label>
+                    <label for="recipe_name" class="black-text">Recipe name</label>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                     <i class="fa-solid fa-bowl-food prefix green-text text-lighten-2"></i>
                     <input id="servings" name="servings" type="number" min="1"
                         onfocus="this.value=''" value="0" class="validate" required>
-                    <label for="prep_time">Servings:</label>
+                    <label for="servings" class="black-text">Servings:</label>
                 </div>
 
                 <!-- Preparation time -->
@@ -48,7 +48,7 @@
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" min="0"
                         onfocus="this.value=''" value="0" class="validate" required>
-                    <label for="prep_time">Preparation time:</label>
+                    <label for="prep_time" class="black-text">Preparation time:</label>
                 </div>
 
                 <!-- Cooking time -->
@@ -56,7 +56,7 @@
                     <i class="fa-solid fa-fire-burner prefix green-text text-lighten-2"></i>
                     <input id="cook_time" name="cook_time" type="number" min="0"
                         onfocus="this.value=''" value="0" class="validate" required>
-                    <label for="cook_time">Cooking time:</label>
+                    <label for="cook_time" class="black-text">Cooking time:</label>
                 </div>
             </div>
 
@@ -70,9 +70,9 @@
                     <i class="fa-solid fa-list prefix green-text text-lighten-2"></i>
                     <input type="text" id="ingredients" name="ingredients" minlength="3" maxlength="50"
                         class="validate">
-                    <label for="ingredients">Ingredients:</label>
+                    <label for="ingredients" class="black-text">Ingredients:</label>
                 </div>
-                <div id="addButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
+                <div id="addButton" class="col s2 btn light-green darken-2 black-text text-shadow">Add</div>
             </div>
 
             <!-- Preparation -->
@@ -84,14 +84,14 @@
                 <div class="input-field col s10">
                     <i class="fa-solid fa-list-ol prefix green-text text-lighten-2"></i>
                     <textarea id="steps" name="steps" minlength="3" class="materialize-textarea"></textarea>
-                    <label for="steps"><span id="prep-step">Preparation step 1:</span></label>
+                    <label for="steps" class="black-text"><span id="prep-step">Preparation step 1:</span></label>
                 </div>
-                <div id="addStepButton" class="col s2 btn light-green darken-2 text-shadow">Add</div>
+                <div id="addStepButton" class="col s2 btn light-green darken-2 black-text text-shadow">Add</div>
             </div>
 
             <!--Create button-->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green darken-2 text-shadow">
+                <button type="submit" class="col s12 btn-large light-green darken-2 black-text text-shadow">
                     <i class="fa-solid fa-floppy-disk prefix white-text text-lighten-2"></i>
                     Create recipe
                 </button>
