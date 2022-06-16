@@ -401,6 +401,9 @@ Home Page<br>
     - in the category selector in if statement I had to cast the value returned from mongo db into 'int'
     to match the type returned from postgreSQL
 
+- When a category was deleted all the recipes created with that respective category changed their category name to next available in the list
+    - in delete_category() I added a statement to delete from db all the recipes related to the deleted category
+
 
 ***
 ## Deployment
