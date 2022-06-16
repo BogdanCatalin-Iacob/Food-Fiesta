@@ -445,10 +445,22 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
     - Select "Create new app" in Heroku.
     - Choose a name for your app and select the location.
 
-2. Attach the Postgres database:
-    - In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
 
-3. Prepare the env and __init__.py file:
+
+2. Create a file named "requirements.txt" and a file named "Procfile" with the following CLI commands:
+    - pip3 freeze > requirements.txt
+    - echo web: python run.py > Procfile
+
+3. Attach the Postgres database:
+    - In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+    - Click "More" dropdown
+    - Select "Run console"
+    - type: "python3"
+    - import db from the project
+    - type CLI command: "db.create_all()"
+    - exit()
+
+4. Prepare the env and __init__.py file:
     - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
     - In your GitPod workspace, create an env.py file in the main directory. 
     - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
@@ -465,13 +477,15 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
         - "DB_URL"
     - in Heroku config var add the same variable with values
 
-4. Store Static and Media files in Cloudinary and Deploy to Heroku:
-    - Create three directories in the main directory; media, storage, and templates.
-    - Create a file named "Procfile" in the main directory and add the following:
-        - web: gunicorn project-name.WSGI
-    - Log in to Heroku using the terminal Heroku login -i.
+5. Log in to Heroku using the terminal Heroku login -i.
     - Then run the following command: **heroku git:remote -a your_app_name_here** and replace your_app_name_here with the name of your Heroku app. This will link the app to your Gitpod terminal.
     - After linking your app to your workspace, you can then deploy new versions of the app by running the command **git push heroku main** and your app will be deployed to Heroku.
+
+    - Or under the "Deploy" menu on Heroku, select:
+        - Deployment method: Connect Github
+        - Search for name of your project on Github
+        - Connect
+        - Enable automatic deploys
 
 
 -   ### Project Creation
