@@ -173,6 +173,10 @@ Profile Page<br>
 
 
 -   ### Limitations
+    - With this release:
+        - Admin is not able to edit/delete any recipe created by any user
+        - Admin can't set superusers (admins)
+        - Users can't upload photos of the final product
 
 ***
 ## Features
@@ -493,6 +497,7 @@ The project was started by navigating to the [template](https://github.com/Code-
 -   ### Code
    - The code for validate materialize select was taken from [codeinstitute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DCP101+2017_T3/courseware/9e2f12f5584e48acb3c29e9b0d7cc4fe/6449dcd23ca14016aa83dc7313d91a02/?child=first)
    - The code for sticky footer was taken from Materializecss (https://materializecss.com/footer.html) 
+   - Code for errorHandle 404 was taken from[flask palletsprojects](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
 
 -   ### Content
     - Home page paragraph was taken from[delicious](https://www.deliciousmagazine.co.uk/recipes/)
@@ -501,6 +506,7 @@ The project was started by navigating to the [template](https://github.com/Code-
 -   ### Media
     - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/uB7q7aipU2o)
     - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/KJOUnsGXq58)
+    https://www.simplebycindyblog.com/wp-content/uploads/2017/09/cropped-catecantcook_banner.png
 
 -   ### Acknowledgements
     - I'd like to thank my mentor Daisy McGirr for her guidance throughout my project.<br>

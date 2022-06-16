@@ -267,3 +267,15 @@ def delete_recipe(recipe_id):
     mongo.db.instructions.delete_one({"_id": ObjectId(recipe_id)})
     flash("Task successfully deleted")
     return redirect(url_for("get_recipes"))
+
+
+# code take from
+# https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/
+@app.errorhandler(404)
+def page_not_found(err):
+    '''
+    404 error handle
+    redirect to a custom 404 page
+    '''
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404

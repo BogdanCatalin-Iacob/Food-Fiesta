@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="deep-orange-text text-darken-4 center-align">404</h1>
+
+<h2 class="text-darken-4 center-align">
+  Oops, looks like we've got it wrong!
+</h2>
+  <!-- Recipes link images -->
+  <div class="col s12 card">
+    <a href="{{ url_for('home') }}" class="card-link center-align" aria-label="link to home page">
+      <figure>
+        <img class="center-align" src="{{ url_for('static', filename='images/kitchen-mess.webp') }}" alt="a kitchen mess, stove on fire, smoke, sink overflown, water on the floor">
+        <figcaption class="black-text"><h3><b>Click on image to go back to HOME page</b></h3></figcaption>
+      </figure>
+    </a>
+  </div>
+</div>
+
+{% endblock %}
