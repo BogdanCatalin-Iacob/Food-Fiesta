@@ -44,18 +44,18 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
 -   ### User stories
 
     -   #### First Time Visitor Goals
-        1. As a First Time Visitor, I want to see different recipes so I can select one that looksgood to cook.
-        1. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        1. As a First Time user, I want to view the website and content clearly on my mobile device.
+        1. As a First Time Visitor, I want to see different recipes so I can select one that looksgood to cook
+        1. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content
+        1. As a First Time user, I want to view the website and content clearly on my mobile device
         1. As a First Time user, I want to be able to register an account
 
     -   #### Returning Visitor Goals
-        1. As a Returning Visitor, I want to be able to create recipes.
-        1. As a Returning Visitor, I want to find community links.
+        1. As a Returning Visitor, I want to be able to create recipes
+        1. As a Returning Visitor, I want to find community links
         1. As a Returning Visitor, I want to keep my login informations hidden
 
     -   #### Frequent User Goals
-        1. As a Frequent User, I want to be able to see and edit my recipes.
+        1. As a Frequent User, I want to be able to see and edit my recipes
 
     -   #### Admin User Goals
         1. As admin, I want to be able to create new categories
@@ -67,59 +67,74 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
 
 -   ### Structure
 
-    - All Pages will contain a Navigation menu at the top of the Webpage that directs them to a new Page to allow users to Navigate the site easily. The Nav Menu will be collapsable on a Mobile device to make use of space on smaller devices.
+    - All Pages will contain a Navigation menu at the top of the Webpage that directs them to a new Page to allow users to Navigate the site easily. The Nav Menu will be collapsable on a Mobile device to make use of space on smaller devices.<br>
         The purpose of this is to fulfill user story:
         > As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
     
-    - Materialize framework will be used to make the website resposive on different devices
-    and display organised content
+    - Materialize framework will be used to make the website resposive on different devices and display organised content.
+    All pages will be responsive and the layouts will change dependant on screen size. This is to ensure content flow is appealing, images are displayed properly and that the content is not shrunk side by side, so small that it is unreadable.<br>
         The purpose of this is to fulfill user story:
+        > As a First Time user, I want to view the website and content clearly on my mobile device.
 
-    - All pages will be responsive and the layouts will change dependant on screen size. This is to ensure content flow is appealing, images are displayed properly and that the content is not shrunk side by side, so small that it is unreadable.
+    - All pages will contain a Footer Element Social Media Icons. The icons used will be from font-awesome. These are referenced below in the Technologies section of this document.<br>
         The purpose of this is to fulfill user story:
-
-    - All pages will contain a Footer Element with Contact Information, and Social Media Icons. The icons used will be from font-awesome. These are referenced below in the Technologies section of this document
-        The purpose of this is to fulfill user story:
+        > As a Returning Visitor, I want to find community links.
 
     - A Registration page will be provided so the users can register an account
 	    - this gives to user the opportunity to register an account and create/edit own recipes
-	    - a link to login page is provided at the bottom of the page in case user already has an account
+	    - a link to login page is provided at the bottom of the page in case user already has an account<br>
         The purpose of this is to fulfill user story:
+        > As a First Time user, I want to be able to register an account
 
     - A login page will be provided so any registered user can login 
 	    - this gives to registered user the possibility to create/edit recipes at any time after registration
-	    - a link to register page is provided at the bottom of the page in case the user doesn't have an account already
+	    - a link to register page is provided at the bottom of the page in case the user doesn't have an account already<br>
         The purpose of this is to fulfill user story:
+        > As a Returning Visitor, I want to be able to create recipes<br>
+        > As admin, I want to be able to create new recipes or edit recipes
 
     - A logout link will be displayed in the navbar for any logged in user
-	    - this is to ensure the user's data are not accessible for other users
+	    - this is to ensure the user's data are not accessible for other users<br>
         The purpose of this is to fulfill user story:
+        > As a Returning Visitor, I want to keep my login informations hidden
 
     - A dedicated page to create recipes will be provided for registered users
-        - this gives the possibility to share recipes with other users of the website
+        - this gives the possibility to share recipes with other users of the website<br>
         The purpose of this is to fulfill user story:
+        > As a Returning Visitor, I want to be able to create recipes<br>
+        > As admin, I want to be able to create new recipes or edit recipes
 
-    - An edit recipe page will be provided for logged in users if the user is the creator of the recipe
-    The purpose of this is to fulfill user story:
+    - An edit recipe page will be provided for logged in users if the user is the creator of the recipe<br>
+        The purpose of this is to fulfill user story:
+        > As a Frequent User, I want to be able to see and edit my recipes<br>
+        > As admin, I want to be able to create new recipes or edit recipes
 
     - A recipe page with recipes from db will be provided for any type of user
-	    - all recies will be availabel on this page
+	    - all recies will be available on this page
 	    - only the recipes created by the current logged in user will have edit/delete buttons available
-	    - each recipe has a dropdown list to display recipes details
+	    - each recipe has a dropdown list to display recipes details<br>
         The purpose of this is to fulfill user story:
+        > As a First Time Visitor, I want to see different recipes so I can select one that looksgood to cook<br>
+        > As a Frequent User, I want to be able to see and edit my recipes<br>
+        > As admin, I want to be able to create new recipes or edit recipes
 
     - A profile page will be provided for any logged in user
 	    - the page will display only the recipes created by the logged in user
-	    and they will have dedicated edit/delete buttons
+	    and they will have dedicated edit/delete buttons<br>
         The purpose of this is to fulfill user story:
+        > As a Frequent User, I want to be able to see and edit my recipes<br>
+        > As admin, I want to be able to create new recipes or edit recipes
 
     - A category page will be provided to the admin user
 	    - Add category button available to create new categories -> a new page will be displayed and gives possibility of adding a new category
 	    - all existent categories will be displayed on this page
 	    - each category will have edit/delete buttons available
 	    - edit button opens a new page where category name edit is possible
-	    - delete button removes the category from db
+	    - delete button removes the category from db<br>
         The purpose of this is to fulfill user story:
+        > As admin, I want to be able to create new categories<br>
+        > As admin, I want to be able to edit categories<br>
+        > As admin, I want to be able to delete categories<br>
 
 -   ### Design
     -   #### Colour Scheme
