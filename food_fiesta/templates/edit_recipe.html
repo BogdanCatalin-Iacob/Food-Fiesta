@@ -14,14 +14,14 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix green-text text-lighten-2"></i>
                     <select id="category_id" name="category_id" class="validate" required>
-                        <!-- <option value="" disabled>Choose category</option>
+                        <option value="" disabled>Choose category</option>
                         {% for category in categories %}
                             {% if category.id == recipe.category_id|int %}
                                 <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
                             {% else %}
                                 <option value="{{ category.id }}">{{ category.category_name }}</option>
                             {% endif %}
-                        {% endfor%} -->
+                        {% endfor%}
                     </select>
                     <label for="category_id" aria-label="category selection list" class="black-text">Categories</label>
                 </div>
@@ -68,23 +68,23 @@
 
             <!-- Ingredients -->
             <div class="row">
-                <label for="ingredientsList" class="col s12 center-align black-text">Ingredients</label>
+                <p class="col s12 center-align black-text"><b>Ingredients</b></p>
                 <div id="ingredients-list" class="col s12">
                     {% for ingredient in recipe.ingredients %}
-                    <input type="text" id="ingredientsList" name="ingredientsList" value="{{- ingredient -}}">
+                        <input type="text" id="ingredientsList{{- loop.index -}}" name="ingredientsList" value="{{- ingredient -}}">
                     {% endfor %}
                 </div>
             </div>
 
             <!-- Preparation -->
             <div class="row">
-                <label for="stepsList" class="col s12 center-align black-text">Cooking steps</label>
+                <p class="col s12 center-align black-text"><b>Cooking steps</b></p>
                 <div id="steps-list" class="col s12">
                     {% for step in recipe.steps %}
                         <!-- code for index loop taken from[stackoverflow](https://stackoverflow.com/questions/12145434/how-to-output-loop-counter-in-python-jinja-template) -->
                         <span>Step {{- loop.index -}}: </span>
                         <!-- end stackoverflow -->
-                        <textarea id="stepsList" name="stepsList" class="materialize-textarea">
+                        <textarea id="stepsList{{- loop.index -}}" name="stepsList" class="materialize-textarea">
                             {{- step -}}
                         </textarea>
                     {% endfor %}
