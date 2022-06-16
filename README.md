@@ -380,7 +380,7 @@ The project was started by navigating to the [template](https://github.com/Code-
 
 -   ### Media
     - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/uB7q7aipU2o)
-    - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/-bLkT8wGV0I)
+    - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/KJOUnsGXq58)
 
 -   ### Acknowledgements
     - I'd like to thank my mentor Daisy McGirr for her guidance throughout my project.<br>

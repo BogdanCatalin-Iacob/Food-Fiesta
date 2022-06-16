@@ -10,38 +10,24 @@
   written recipe to suit you. They’ve all been tested by the expert food team at delicious. so we know they’ll work
   first time for you.</p>
 
-
-<div class="row center">
-  <div class="col s12 m6">
-    <a href="{{ url_for('create_recipe') }}" class="card-link">
-      <div class="card large">
-        <div class="card-image">
-          <img src="static/images/create-recipe.jpg" alt="some cooking ingredients on a table">
-        </div>
-        <div class="card-content center-align">
-          <span class="card-title">Create Recipe</span>
-          <p>Share a recipe with our community.</p>
-          <div class="col s12 btn-large light-green darken-2 text-shadow">
-            <i class="fa-solid fa-edit prefix white-text text-lighten-2"></i>Create</div>
-        </div>
-      </div>
+  <!-- Create recipe link image -->
+<div class="row center-align">
+  <div class="col s12 m6 card center-align">
+    <a href="{{ url_for('create_recipe') }}" class="card-link center-align">
+      <figure>
+        <img class="center-align" src="static/images/create-recipe.webp" alt="some cooking ingredients on a table">
+        <figcaption class="black-text">Share a recipe with our community. Create one.</figcaption>
+      </figure>
     </a>
   </div>
 
-
-  <div class="col s12 m6">
-    <a href="{{ url_for('get_recipes') }}" class="card-link">
-      <div class="card large">
-        <div class="card-image">
-          <img src="static/images/mixing-pan.webp" alt="Someone mixes some food in a pan">
-        </div>
-        <div class="card-content center-align">
-          <span class="card-title">Find Recipe</span>
-          <p>Fancy cooking? Try one of our community's recipe.</p>
-          <div class="col s12 btn-large light-green darken-2 text-shadow">
-            <i class="fa-solid fa-book prefix white-text text-lighten-2"></i>Cook</div>
-        </div>
-      </div>
+  <!-- Recipes link images -->
+  <div class="col s12 m6 card">
+    <a href="{{ url_for('get_recipes') }}" class="card-link center-align">
+      <figure>
+        <img class="center-align" src="static/images/food.webp" alt="Someone mixes some food in a pan">
+        <figcaption class="black-text">Fancy cooking? Try one of our community's recipe.</figcaption>
+      </figure>
     </a>
   </div>
 </div>
