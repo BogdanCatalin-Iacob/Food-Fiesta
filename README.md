@@ -5,6 +5,7 @@
     * [First Time Visitor Goals](#First-Time-Visitor-Goals)
     * [Returning Visitor Goals](#Returning-Visitor-Goals)
     * [Frequent User Goals](#Frequent-User-Goals)
+    * [Admin Goals](#admin-user-goals)
   * [Structure](#Structure)
   * [Design](#Design)
     * [Colour Scheme](#Colour-Scheme)
@@ -21,8 +22,8 @@
     * [Test Results](#Test-Results)
     * [Testing Issues](#Issues-and-Resolutions-to-issues-found-during-testing)
 * [Deployment](#Deployment)
-    * [Project Creation](#Project-Creation)
-    * [GitHub Pages](#Using-Github-Pages)
+    * [Project creation](#project-creation)
+    * [Deploying on Heroku](#deploying-on-heroku)
     * [Locally](Run-Locally)
 * [Credits](#Credits)
     * [Code](#Code)
@@ -477,6 +478,15 @@ Profile Page<br>
 
 This project was developed using a [GitPod](https://gitpod.io) workspace. The code was committed to [Git](https://git-scm.com) and pushed to [GitHub](https://github.com) using the terminal.
 
+-   ### Project Creation
+The project was started by navigating to the [template](https://github.com/Code-Institute-Org/gitpod-full-template) and clicking 'Use this template'. Under Repository name I input "Food-Fiesta" and checked the Include all branches checkbox. I then navigated to the new [repository](https://github.com/BogdanCatalin-Iacob/Food-Fiesta). I then clicked the Gitpod button to open the project in Gitpod.
+
+ The following commands were used throughout the project:
+
+* git add filename - This command was used to add fils to the staging area before commiting.
+* git commit -m *commit message explaining the updates* - This command was used to to commit changes to the local repository.
+* git push - This command is used to push all commited changes to the GitHub repository. 
+
 ### Deploying on Heroku
 To deploy this page to Heroku from its GitHub repository, the following steps were taken:
 
@@ -524,15 +534,6 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
         - Connect
         - Enable automatic deploys
 
--   ### Project Creation
-The project was started by navigating to the [template](https://github.com/Code-Institute-Org/gitpod-full-template) and clicking 'Use this template'. Under Repository name I input "Food-Fiesta" and checked the Include all branches checkbox. I then navigated to the new [repository](https://github.com/BogdanCatalin-Iacob/Food-Fiesta). I then clicked the Gitpod button to open the project in Gitpod.
-
- The following commands were used throughout the project:
-
-* git add filename - This command was used to add fils to the staging area before commiting.
-* git commit -m *commit message explaining the updates* - This command was used to to commit changes to the local repository.
-* git push - This command is used to push all commited changes to the GitHub repository. 
-
 -   ### Run Locally
 1. Navigate to the GitHub [Repository:](https://github.com/BogdanCatalin-Iacob/Food-Fiesta)
 1. Click the Code drop down menu.
@@ -551,7 +552,6 @@ The project was started by navigating to the [template](https://github.com/Code-
 -   ### Content
     - Home page paragraph was taken from[delicious](https://www.deliciousmagazine.co.uk/recipes/)
     
-
 -   ### Media
     - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/uB7q7aipU2o)
     - Image for recipes link was taken from[unsplash](https://unsplash.com/photos/KJOUnsGXq58)
