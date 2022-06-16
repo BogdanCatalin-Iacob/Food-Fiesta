@@ -299,11 +299,29 @@ Profile Page<br>
     -   ### Test Results
 
     - All Pages were run through the [W3C HTML Validator](https://validator.w3.org/) and showed no errors.<br>
-    ![html-validation]()<br>
+    ![html-validation-add-category](food_fiesta/static/images/validation/validation-add-category.png)<br>
+    ![html-validation-categories](food_fiesta/static/images/validation/validation-categories.png)<br>
+    ![html-validation-create-recipe](food_fiesta/static/images/validation/validation-create-recipe.png)<br>
+    ![html-validation-edit-category](food_fiesta/static/images/validation/validation-edit-category.png)<br>
+    ![html-validation-edit-recipe](food_fiesta/static/images/validation/validation-edit-recipes.png)<br>
+    ![html-validation-get-recipes](food_fiesta/static/images/validation/validation-get-recipes.png)<br>
+    ![html-validation-home](food_fiesta/static/images/validation/validation-home.png)<br>
+    ![html-validation-login](food_fiesta/static/images/validation/validation-login.png)<br>
+    ![html-validation-profile](food_fiesta/static/images/validation/validation-profile.png)<br>
+    ![html-validation-register](food_fiesta/static/images/validation/validation-register.png)<br>
 
 
-    - CSS Stylesheet was run through the [W3C CSS Validator]() and showed no errors.<br>
-    ![css-validation]()<br>
+    - CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and showed no errors.<br>
+    ![css-validation](food_fiesta/static/images/validation/validation-css.png)<br>
+
+    - Js files were run through [JSHint](https://jshint.com/) and showed no errors.<br>
+    ![js-validation-recipe-form](food_fiesta/static/images/validation/validation-recipes-forms.png)<br>
+    ![js-validation-scripyt](food_fiesta/static/images/validation/validation-script-js.png)<br>
+
+    - Python files were run through [Pep8](http://pep8online.com/) and showed no errors.<br>
+    ![py-validation-init](food_fiesta/static/images/validation/validation-init-py.png)<br>
+    ![py-validation-models](food_fiesta/static/images/validation/validation-models-py.png)<br>
+    ![py-validation-routes](food_fiesta/static/images/validation/validation-routes-py.png)<br>
 
     - Website was tested by running locally and tested on the deployed version on three different browsers:
         - Google Chrome: no differences found
@@ -432,11 +450,10 @@ Profile Page<br>
 - When a category was deleted all the recipes created with that respective category changed their category name to next available in the list
     - in delete_category() I added a statement to delete from db all the recipes related to the deleted category
 
-
 ***
 ## Deployment
 
-This project was developed using a [GitPod](https://gitpod.io/ "Link to GitPod") workspace. The code was committed to [Git](https://git-scm.com/ "Link to Git") and pushed to [GitHub](https://github.com/ "Link to GitHub") using the terminal.
+This project was developed using a [GitPod](https://gitpod.io) workspace. The code was committed to [Git](https://git-scm.com) and pushed to [GitHub](https://github.com) using the terminal.
 
 ### Deploying on Heroku
 To deploy this page to Heroku from its GitHub repository, the following steps were taken:
@@ -486,7 +503,6 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
         - Search for name of your project on Github
         - Connect
         - Enable automatic deploys
-
 
 -   ### Project Creation
 The project was started by navigating to the [template](https://github.com/Code-Institute-Org/gitpod-full-template) and clicking 'Use this template'. Under Repository name I input "Food-Fiesta" and checked the Include all branches checkbox. I then navigated to the new [repository](https://github.com/BogdanCatalin-Iacob/Food-Fiesta). I then clicked the Gitpod button to open the project in Gitpod.
