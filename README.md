@@ -480,7 +480,7 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/)<br>
 
     #### Known bugs/errors not fixed
     - On Create Recipe and Edit Recipe pages, on select dropdown [wave-accessibility](https://wave.webaim.org/) detects a missing label
-        although on my code the <label> exists for the same id="category_id" as the <select>
+        although on my code the "label" exists for the same id="category_id" as the "select"
         - this is not fixed as I can't locate the issue yet
         ![wave-error-form](food_fiesta/static/images/label-error.png)
         ![wave-error-code](food_fiesta/static/images/label-error-2.png)
