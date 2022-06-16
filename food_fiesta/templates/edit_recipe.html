@@ -14,16 +14,16 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-book-open prefix green-text text-lighten-2"></i>
                     <select id="category_id" name="category_id" class="validate" required>
-                        <option value="" disabled>Choose category</option>
+                        <!-- <option value="" disabled>Choose category</option>
                         {% for category in categories %}
                             {% if category.id == recipe.category_id|int %}
                                 <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
                             {% else %}
                                 <option value="{{ category.id }}">{{ category.category_name }}</option>
                             {% endif %}
-                        {% endfor%}
+                        {% endfor%} -->
                     </select>
-                    <label for="category_id">Categories</label>
+                    <label for="category_id" aria-label="category selection list" class="black-text">Categories</label>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                     <i class="fa-solid fa-tag prefix green-text text-lighten-2"></i>
                     <input id="recipe_name" name="recipe_name" type="text" minlength="5" maxlength="25"
                         value="{{ recipe.recipe_name }}" class="validate" required>
-                    <label for="recipe_name">Recipe name</label>
+                    <label for="recipe_name" class="black-text">Recipe name</label>
                 </div>
             </div>
 
@@ -43,17 +43,17 @@
                 <i class="fa-solid fa-bowl-food prefix green-text text-lighten-2"></i>
                 <input id="servings" name="servings" type="number" min="1"
                     onfocus="this.value=''" value="{{ recipe.servings }}" class="validate" required>
-                <label for="prep_time">Servings:</label>
+                <label for="servings" class="black-text">Servings:</label>
             </div>
 
             <div class="row">
                 <!-- Preparation time -->
-                <div class="input-field col s12 m5">
+                <div class="input-field col s12 m4">
                     <i class="fa-solid fa-carrot prefix green-text text-lighten-2"></i>
                     <input id="prep_time" name="prep_time" type="number" min="0"
                         onfocus="this.value=''" value="{{ recipe.prep_time }}" onkeyup="totalTime()" class="validate"
                         required>
-                    <label for="prep_time">Preparation time:</label>
+                    <label for="prep_time" class="black-text">Preparation time:</label>
                 </div>
 
                 <!-- Cooking time -->
@@ -62,29 +62,29 @@
                     <input id="cook_time" name="cook_time" type="number" min="0"
                         onfocus="this.value=''" value="{{ recipe.cook_time }}" onkeyup="totalTime()" class="validate"
                         required>
-                    <label for="cook_time">Cooking time:</label>
+                    <label for="cook_time" class="black-text">Cooking time:</label>
                 </div>
             </div>
 
             <!-- Ingredients -->
             <div class="row">
-                <div class="col s12 center-align">Ingredients</div>
+                <label for="ingredientsList" class="col s12 center-align black-text">Ingredients</label>
                 <div id="ingredients-list" class="col s12">
                     {% for ingredient in recipe.ingredients %}
-                    <input type="text" name="ingredientsList" value="{{- ingredient -}}">
+                    <input type="text" id="ingredientsList" name="ingredientsList" value="{{- ingredient -}}">
                     {% endfor %}
                 </div>
             </div>
 
             <!-- Preparation -->
             <div class="row">
-                <div class="col s12 center-align">Cooking steps</div>
+                <label for="stepsList" class="col s12 center-align black-text">Cooking steps</label>
                 <div id="steps-list" class="col s12">
                     {% for step in recipe.steps %}
                         <!-- code for index loop taken from[stackoverflow](https://stackoverflow.com/questions/12145434/how-to-output-loop-counter-in-python-jinja-template) -->
                         <span>Step {{- loop.index -}}: </span>
                         <!-- end stackoverflow -->
-                        <textarea name="stepsList" class="materialize-textarea">
+                        <textarea id="stepsList" name="stepsList" class="materialize-textarea">
                             {{- step -}}
                         </textarea>
                     {% endfor %}
@@ -93,7 +93,7 @@
 
             <!--Edit button-->
             <div class="row">
-                <button type="submit" class="col s12 btn-large light-green darken-2 text-shadow">
+                <button type="submit" class="col s12 btn-large light-green darken-2 black-text text-shadow">
                     <i class="fa-solid fa-edit prefix white-text text-lighten-2"></i>
                     Edit recipe
                 </button>
