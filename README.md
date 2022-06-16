@@ -35,8 +35,8 @@
 This Website was created for the sole purpose of completing the third Milestone Project for the Code Institute's Full Stack Developer course. 
 It was built using the knowledge gained from the HTML, CSS, JavaScript, Python, Flask, MongoBb and SQL modules. A full list of technologies used can be found in the technologies section of this document.
 
-The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
-![Website Mock Up]()
+The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/)<br>
+![Website Mock Up](food_fiesta/static/images/features/mock-up.png)
 
 ## User Experience (UX)
 
@@ -183,34 +183,56 @@ Profile Page<br>
  
 -   ### Existing Features
 
-    - Each page of the website features a consistent responsive navigational system:
-
-    - The header contains the logo of the website in the center of the navigation bar. This will also redirect users back to the home page once clicking on it. On       smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.
-
+    - Each page of the website features a consistent responsive navigational system
     - Each page can be accessed from a mobile device
+    - The header contains the logo of the website in the left of the navigation bar. This will also redirect users back to the home page once clicking on it. On smaller screens, everything but the logo is condensed down into a dropdown menu which provides users with the same navigation. On the far right of the navigation bar, the user is presented with either 'login' or 'logout' depending on if they have an account they are logged into.<br>
+
+    ![navbar](food_fiesta/static/images/features/navbar.png)
+    ![mobile-nav](food_fiesta/static/images/features/mobile-nav.png)
 
     - Standard user features
-        - Registration page
+        - Registration page<br>
+        ![register-page](food_fiesta/static/images/features/register-feat.png)<br>
+
         - Login page
-        - Logout page
+        ![login-page](food_fiesta/static/images/features/login-feat.png)<br>
+
+        - Logout button/link found on navbar/ nav menu
+
         - Create recipe page
+        ![create-recipe](food_fiesta/static/images/features/create-recipe.png)<br>
+
         - View recipes
+        ![recipes](food_fiesta/static/images/features/recipes-feat.png)<br>
+
         - Edit recipe page
-        - Delete Recipe
+        ![edit-recipe](food_fiesta/static/images/features/edit-recipe-feat.png)<br>
+
+        - Delete Recipe button
+        ![delete-recipe-button](food_fiesta/static/images/features/recipes-feat.png)<br>
+
     - Admin user features on top of the standard features
         - Create categories
+        ![craete-category](food_fiesta/static/images/features/add-category-feat.png)<br>
+
         - View categories
+        ![view-categories](food_fiesta/static/images/features/categories-feat.png)<br>
+
         - Edit categories
-        - Delete categories
+        ![edit-category](food_fiesta/static/images/features/edit-category.png)
+
+        - Delete categories buttons
+        ![delete-button](food_fiesta/static/images/features/categories-feat.png)
+
 
     - The footer is intentionally simple to keep up with the simplicity of the rest of the site. It contains social network links .
-
+    ![footer](food_fiesta/static/images/features/footer-feat.png)
 
 - Error page (404) to redirect the user back to home page<br>
-    ![error-page]()<br>
+    ![error-page](food_fiesta/static/images/features/404-error.png)<br>
 
 - Icon in the browser tab<br>
-    ![browser-tab-icon]()<br>
+    ![browser-tab-icon](food_fiesta/static/images/features/tab-icon.png)<br>
 
 -   ### Features Left to Implement
 
@@ -462,8 +484,6 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
     - Select "Create new app" in Heroku.
     - Choose a name for your app and select the location.
 
-
-
 2. Create a file named "requirements.txt" and a file named "Procfile" with the following CLI commands:
     - pip3 freeze > requirements.txt
     - echo web: python run.py > Procfile
@@ -513,11 +533,8 @@ The project was started by navigating to the [template](https://github.com/Code-
 * git commit -m *commit message explaining the updates* - This command was used to to commit changes to the local repository.
 * git push - This command is used to push all commited changes to the GitHub repository. 
 
--   ### Using Heroku
-
-
 -   ### Run Locally
-1. Navigate to the GitHub [Repository:](https://github.com/BogdanCatalin-Iacob/mFood-Fiesta)
+1. Navigate to the GitHub [Repository:](https://github.com/BogdanCatalin-Iacob/Food-Fiesta)
 1. Click the Code drop down menu.
 1. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
 1. Open your developement editor of choice and open a terminal window in a directory of your choice.
