@@ -141,7 +141,8 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
         -   The main colours used are: . 
 
     -   #### Typography
-        
+        - Font used for all heading elements: 'Lato' with Arial as fallback font in case 'Lato' is not loaded 
+        - Font used for all the other elements: 'Fira Sans' with Helvetica as fallback font in case 'Fira Sans' is not loaded
         
     -   #### Imagery
         -   
