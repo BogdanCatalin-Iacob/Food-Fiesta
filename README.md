@@ -149,7 +149,25 @@ The live website can be found [here](https://food-fiesta-ms3.herokuapp.com/).
 
     -   #### Wireframes
 Home Page<br>
-![Home Page Wireframe]()<br>
+![Home Page Wireframe](food_fiesta/static/images/Wireframes/home-page.PNG)<br>
+Login Page<br>
+![Login Page Wireframe](food_fiesta/static/images/Wireframes/login-page.PNG)<br>
+Register Page<br>
+![Register Page Wireframe](food_fiesta/static/images/Wireframes/register-page.PNG)<br>
+Categories Page<br>
+![Categories Page Wireframe](food_fiesta/static/images/Wireframes/categories-page.PNG)<br>
+Add Category Page<br>
+![Add Category Page Wireframe](food_fiesta/static/images/Wireframes/add-category-page.PNG)<br>
+Edit Category Page<br>
+![Edit Category Page Wireframe](food_fiesta/static/images/Wireframes/edit-category-page.PNG)<br>
+Create Recipe Page<br>
+![Create Recipe Page Wireframe](food_fiesta/static/images/Wireframes/create-recipe-page.PNG)<br>
+Edit Recipe Page<br>
+![Edit Recipe Page Wireframe](food_fiesta/static/images/Wireframes/edit-recipe-page.PNG)<br>
+Recipes Page<br>
+![Recipes Page Wireframe](food_fiesta/static/images/Wireframes/recipes-page.PNG)<br>
+Profile Page<br>
+![Profile Page Wireframe](food_fiesta/static/images/Wireframes/profile-page.PNG)<br>
 
 
 -   ### Limitations
@@ -474,6 +492,7 @@ The project was started by navigating to the [template](https://github.com/Code-
    - The code for sticky footer was taken from Materializecss (https://materializecss.com/footer.html) 
 
 -   ### Content
+    - Home page paragraph was taken from[delicious](https://www.deliciousmagazine.co.uk/recipes/)
     
 
 -   ### Media
