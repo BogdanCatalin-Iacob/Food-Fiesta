@@ -8,12 +8,13 @@
   healthy ideas for storecupboard
   ingredients (take a look at the recipes you can make with one tin of tomatoes!). Fear not. We’ll have a carefully
   written recipe to suit you. They’ve all been tested by the expert food team at delicious. so we know they’ll work
-  first time for you.</p>
+  first time for you.
+</p>
 
   <!-- Create recipe link image -->
 <div class="row center-align">
   <div class="col s12 m6 card center-align">
-    <a href="{{ url_for('create_recipe') }}" class="card-link center-align">
+    <a href="{{ url_for('create_recipe') }}" class="card-link center-align" aria-label="link to create recipe page">
       <figure>
         <img class="center-align" src="static/images/create-recipe.webp" alt="some cooking ingredients on a table">
         <figcaption class="black-text">Share a recipe with our community. Create one.</figcaption>
@@ -23,7 +24,7 @@
 
   <!-- Recipes link images -->
   <div class="col s12 m6 card">
-    <a href="{{ url_for('get_recipes') }}" class="card-link center-align">
+    <a href="{{ url_for('get_recipes') }}" class="card-link center-align" aria-label="link to recipes page">
       <figure>
         <img class="center-align" src="static/images/food.webp" alt="Someone mixes some food in a pan">
         <figcaption class="black-text">Fancy cooking? Try one of our community's recipe.</figcaption>
