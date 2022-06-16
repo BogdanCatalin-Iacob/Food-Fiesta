@@ -44,7 +44,8 @@ main {
   font-size: 2rem;
 }
 
-.fa-circle-plus{
+.fa-circle-plus,
+.fa-edit{
   margin-left: 00.5rem;
 }
 
